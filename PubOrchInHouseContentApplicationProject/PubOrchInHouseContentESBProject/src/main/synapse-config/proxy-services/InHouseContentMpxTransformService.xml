@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="InHouseContentMpxTransformService" transports="http https" startOnLoad="true" trace="disable">
+    <target>
+        <inSequence>
+            <log level="full" description="log:input"/>
+            <xslt key="gov:xslt/InHouseContentMpxTransformService_Xslt.xslt" description="mpxTransformXslt"/>
+            <header name="To" scope="default" action="remove"/>
+            <property name="RESPONSE" value="true" scope="default" type="STRING"/>
+            <property name="NO_ENTITY_BODY" scope="axis2" action="remove"/>
+            <send/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </target>
+    <publishWSDL key="gov:/wsdl/InHouseContentMpxTransformService_Wsdl.wsdl"/>
+</proxy>

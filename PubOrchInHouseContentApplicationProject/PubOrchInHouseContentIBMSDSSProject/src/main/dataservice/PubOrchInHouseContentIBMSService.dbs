@@ -1,0 +1,66 @@
+<data name="PubOrchInHouseContentIBMSService" serviceNamespace="http://service.skytv.co.nz/ibms/v1">
+    <config id="default">
+        <property name="carbon_datasource_name">MilanoPubOrchDataSource</property>
+    </config>
+    <query id="SELECT_MEDIAMETA_BY_MEDIAID" useConfig="default">
+        <sql>select a.TITLE_ID,a.TITLE_EPISODE_NAME,a.MSORATING,a.DURATION,a.HUMAN_READABLE_ASPECT_RATIO,a.AUDIO,a.SCREEN_FORMAT, b.house_media from MEDIA_METADATA_VIEW a, INHOUSE_STANDARD_MEDIA_VIEW b where a.title_id = b.title_id and b.house_media = :mediaID</sql>
+        <result element="GetVodMediaMetadataResponse" rowName="">
+            <element name="Media" namespace="http://model.skytv.co.nz/vod/v1">
+                <element column="TITLE_ID" name="titleId" xsdType="string"/>
+                <element column="TITLE_EPISODE_NAME" name="titleName" xsdType="string"/>
+                <element column="MSORATING" name="certification" xsdType="string"/>
+                <element column="DURATION" name="duration" xsdType="string"/>
+                <element column="AUDIO" name="audioType" xsdType="string"/>
+                <element column="HUMAN_READABLE_ASPECT_RATIO" name="aspectRatio" xsdType="string"/>
+                <element column="SCREEN_FORMAT" name="screenFormat" xsdType="string"/>
+                <element column="house_media" name="mediaID" xsdType="string"/>
+            </element>
+        </result>
+        <param name="mediaID" sqlType="STRING"/>
+    </query>
+    <query id="SELECT_TITLE_BY_TITLE_ID" useConfig="default">
+        <sql>select TITLE_ID, PROGRAMME_NAME, EPISODE_NO, YEAR_OF_PRODUCTION, DEAL_TYPE_DESC, COMPANY_NAME, COMPANY_ID, MARKED_AS_DELETED, SERIES_ID , SERIES_NAME, SERIES_YEAR,SYNOPSIS, LAST_UPDATE_DATE from title_view where TITLE_ID = :titleId</sql>
+        <result defaultNamespace="http://service.skytv.co.nz/ibms/v1" element="GetVodTitleResponse" rowName="">
+            <element name="Title" namespace="http://model.skytv.co.nz/vod/v1">
+                <element column="title_id" name="titleId" xsdType="xs:long"/>
+                <element column="programme_name" name="title" xsdType="xs:string"/>
+                <element column="episode_no" name="episodeNumber" xsdType="xs:long"/>
+                <element column="year_of_production" name="yearOfProduction" xsdType="xs:long"/>
+                <element column="deal_type_desc" name="type" xsdType="xs:string"/>
+                <element column="company_name" name="distributor" xsdType="xs:string"/>
+                <element column="company_id" name="contentProviderId" xsdType="xs:long"/>
+                <element column="marked_as_deleted" name="state" xsdType="xs:integer"/>
+                <element column="series_id" name="seriesId" xsdType="xs:long"/>
+                <element column="series_name" name="seriesName" xsdType="xs:string"/>
+                <element column="series_year" name="seriesYear" xsdType="xs:string"/>
+                <element column="synopsis" name="synopsis" xsdType="xs:string"/>
+                <element column="LAST_UPDATE_DATE" name="lastUpdateDate" xsdType="xs:string"/>
+            </element>
+        </result>
+        <param name="titleId" sqlType="DOUBLE"/>
+    </query>
+    <query id="SELECT_ALL_VIDEIOTYPES" useConfig="default">
+        <sql>SELECT p.PLATFORM_ID, p.PLATFORM_KEY, a.ASSET_TYPE_ID, a.ASSET_TYPE_DESC, a.MEDIA_TYPE, ihat.file_location FROM PLATFORM p INNER JOIN PLATFORM_ASSET_TYPE pat ON p.PLATFORM_ID = pat.PLATFORM_ID INNER JOIN ASSET_TYPE a ON pat.ASSET_TYPE_ID = a.ASSET_TYPE_ID inner JOIN IN_HOUSE ih ON p.PLATFORM_ID = ih.PLATFORM_ID inner join in_house_asset_type ihat on ihat.in_house_id = ih.in_house_id</sql>
+        <result element="GetVideoTypesResponse" rowName="">
+            <element name="assetType" namespace="http://model.skytv.co.nz/puborch-productiondef/v1">
+                <element column="ASSET_TYPE_ID" name="assetTypeId" xsdType="string"/>
+                <element column="ASSET_TYPE_DESC" name="description" xsdType="string"/>
+                <element column="MEDIA_TYPE" name="mediaType" xsdType="string"/>
+                <element column="FILE_LOCATION" name="url" xsdType="string"/>
+            </element>
+        </result>
+    </query>
+    <operation name="GetVodMediaMetadata">
+        <call-query href="SELECT_MEDIAMETA_BY_MEDIAID">
+            <with-param name="mediaID" query-param="mediaID"/>
+        </call-query>
+    </operation>
+    <operation name="GetVodTitleByTitleID">
+        <call-query href="SELECT_TITLE_BY_TITLE_ID">
+            <with-param name="titleId" query-param="titleId"/>
+        </call-query>
+    </operation>
+    <operation name="GetVideoTypes">
+        <call-query href="SELECT_ALL_VIDEIOTYPES"/>
+    </operation>
+</data>

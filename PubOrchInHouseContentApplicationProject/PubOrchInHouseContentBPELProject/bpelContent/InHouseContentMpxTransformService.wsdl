@@ -1,0 +1,261 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns2="http://model.skytv.co.nz/vod/v1" xmlns:ns1="http://service.skytv.co.nz/puborch-transform/v1" xmlns:ns3="http://model.skytv.co.nz/puborch-productiondef/v1" xmlns:sky="http://xml.theplatform.com/media/data/sky" xmlns:plingestmf="http://xml.theplatform.com/ingest/data/IngestMediaFile" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:plfile="http://xml.theplatform.com/media/data/MediaFile" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://service.skytv.co.nz/puborch-transform/v1">
+   <wsdl:types>
+      <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.skytv.co.nz/puborch-transform/v1">
+         <xs:import namespace="http://model.skytv.co.nz/vod/v1"></xs:import>
+         <xs:import namespace="http://model.skytv.co.nz/puborch-productiondef/v1"></xs:import>
+         <xs:import namespace="http://xml.theplatform.com/media/data/sky"></xs:import>
+         <xs:import namespace="http://search.yahoo.com/mrss/"></xs:import>
+         <xs:import namespace="http://xml.theplatform.com/media/data/MediaFile"></xs:import>
+         <xs:import namespace="http://xml.theplatform.com/ingest/data/IngestMediaFile"></xs:import>
+         <xs:element name="TransformRequest" type="ns1:TransformRequest"></xs:element>
+         <xs:complexType name="TransformRequest">
+            <xs:sequence>
+               <xs:element name="fromType" type="xs:string"></xs:element>
+               <xs:element name="toType" type="xs:string"></xs:element>
+               <xs:element name="source">
+                  <xs:complexType>
+                     <xs:sequence>
+                        <xs:element ref="ns2:Media"></xs:element>
+                        <xs:element ref="ns2:Title"></xs:element>
+                        <xs:element name="videos">
+                           <xs:complexType>
+                              <xs:sequence>
+                                 <xs:element maxOccurs="unbounded" minOccurs="0" ref="ns3:assetType"></xs:element>
+                              </xs:sequence>
+                           </xs:complexType>
+                        </xs:element>
+                     </xs:sequence>
+                  </xs:complexType>
+               </xs:element>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:element name="TransformResponse">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="rss">
+                     <xs:complexType>
+                        <xs:sequence>
+                           <xs:element name="channel">
+                              <xs:complexType>
+                                 <xs:sequence>
+                                    <xs:element name="item">
+                                       <xs:complexType>
+                                          <xs:sequence>
+                                             <xs:element name="guid">
+                                                <xs:complexType>
+                                                   <xs:simpleContent>
+                                                      <xs:extension base="xs:string">
+                                                         <xs:attribute name="isPermaLink" type="xs:boolean" use="required"></xs:attribute>
+                                                      </xs:extension>
+                                                   </xs:simpleContent>
+                                                </xs:complexType>
+                                             </xs:element>
+                                             <xs:element name="title" type="xs:string"></xs:element>
+                                             <xs:element ref="sky:inHouse"></xs:element>
+                                             <xs:element ref="sky:mediaId"></xs:element>
+                                             <xs:element ref="sky:programType"></xs:element>
+                                             <xs:element ref="sky:studio"></xs:element>
+                                             <xs:element ref="sky:contentProviderId"></xs:element>
+                                             <xs:element ref="sky:state"></xs:element>
+                                             <xs:element ref="media:rating"></xs:element>
+                                             <xs:element maxOccurs="unbounded" ref="sky:advisory"></xs:element>
+                                             <xs:element ref="sky:seriesId"></xs:element>
+                                             <xs:element ref="sky:seriesTitle"></xs:element>
+                                             <xs:element ref="sky:seriesDescription"></xs:element>
+                                             <xs:element ref="sky:seasonId"></xs:element>
+                                             <xs:element ref="sky:seasonNumber"></xs:element>
+                                             <xs:element ref="sky:seasonTitle"></xs:element>
+                                             <xs:element ref="sky:seasonDescription"></xs:element>
+                                             <xs:element ref="sky:episodeNumber"></xs:element>
+                                             <xs:element ref="sky:releaseYear"></xs:element>
+                                             <xs:element ref="sky:audioType"></xs:element>
+                                          </xs:sequence>
+                                       </xs:complexType>
+                                    </xs:element>
+                                 </xs:sequence>
+                              </xs:complexType>
+                           </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="version" type="xs:decimal" use="required"></xs:attribute>
+                     </xs:complexType>
+                  </xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:schema>
+      <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://xml.theplatform.com/media/data/sky">
+         <xs:element name="inHouse" type="xs:string"></xs:element>
+         <xs:element name="mediaId" type="xs:string"></xs:element>
+         <xs:element name="programType" type="xs:string"></xs:element>
+         <xs:element name="studio" type="xs:string"></xs:element>
+         <xs:element name="contentProviderId" type="xs:string"></xs:element>
+         <xs:element name="state" type="xs:string"></xs:element>
+         <xs:element name="advisory" type="xs:string"></xs:element>
+         <xs:element name="seriesId" type="xs:string"></xs:element>
+         <xs:element name="seriesTitle" type="xs:string"></xs:element>
+         <xs:element name="seriesDescription" type="xs:string"></xs:element>
+         <xs:element name="seasonId" type="xs:string"></xs:element>
+         <xs:element name="seasonNumber" type="xs:string"></xs:element>
+         <xs:element name="seasonTitle" type="xs:string"></xs:element>
+         <xs:element name="seasonDescription" type="xs:string"></xs:element>
+         <xs:element name="episodeNumber" type="xs:string"></xs:element>
+         <xs:element name="releaseYear" type="xs:string"></xs:element>
+         <xs:element name="audioType" type="xs:string"></xs:element>
+      </xs:schema>
+      <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://search.yahoo.com/mrss/">
+         <xs:import namespace="http://xml.theplatform.com/ingest/data/IngestMediaFile"></xs:import>
+         <xs:import namespace="http://xml.theplatform.com/media/data/MediaFile"></xs:import>
+         <xs:element name="category" type="xs:string"></xs:element>
+         <xs:element name="keywords" type="xs:string"></xs:element>
+         <xs:element name="rating" type="xs:string"></xs:element>
+         <xs:element name="group">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element ref="media:content"></xs:element>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="content">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element ref="plfile:assetType"></xs:element>
+                  <xs:element ref="plingestmf:deleted"></xs:element>
+               </xs:sequence>
+               <xs:attribute name="medium" type="xs:string"></xs:attribute>
+               <xs:attribute name="url" type="xs:string"></xs:attribute>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="thumbnail">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element ref="plfile:assetType"></xs:element>
+                  <xs:element ref="plingestmf:deleted"></xs:element>
+               </xs:sequence>
+               <xs:attribute name="medium" type="xs:string"></xs:attribute>
+               <xs:attribute name="url" type="xs:string"></xs:attribute>
+            </xs:complexType>
+         </xs:element>
+      </xs:schema>
+      <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://xml.theplatform.com/media/data/MediaFile">
+         <xs:element name="assetType" type="xs:string"></xs:element>
+      </xs:schema>
+      <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://xml.theplatform.com/ingest/data/IngestMediaFile">
+         <xs:element name="deleted" type="xs:boolean"></xs:element>
+      </xs:schema>
+      <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://model.skytv.co.nz/vod/v1">
+         <xs:element name="Media" type="ns2:Media"></xs:element>
+         <xs:complexType name="Media">
+            <xs:sequence>
+               <xs:element name="guid" type="xs:string"></xs:element>
+               <xs:element name="titleId" type="xs:long"></xs:element>
+               <xs:element name="titleName" type="xs:string"></xs:element>
+               <xs:element name="certification" type="xs:string"></xs:element>
+               <xs:element name="duration" type="xs:string"></xs:element>
+               <xs:element name="audioType" type="xs:string"></xs:element>
+               <xs:element name="aspectRatio" type="xs:string"></xs:element>
+               <xs:element name="screenFormat" type="xs:string"></xs:element>
+               <xs:element name="mediaId" type="xs:string"></xs:element>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:element name="Title" type="ns2:Title"></xs:element>
+         <xs:complexType name="Title">
+            <xs:sequence>
+               <xs:element name="titleId" type="xs:long"></xs:element>
+               <xs:element name="title" type="xs:string"></xs:element>
+               <xs:element name="episodeNumber" type="xs:string"></xs:element>
+               <xs:element name="yearOfProduction" type="xs:string"></xs:element>
+               <xs:element name="type" type="xs:string"></xs:element>
+               <xs:element name="distributor" type="xs:string"></xs:element>
+               <xs:element name="contentProviderId" type="xs:string"></xs:element>
+               <xs:element name="state" type="xs:string"></xs:element>
+               <xs:element name="seriesId" type="xs:string"></xs:element>
+               <xs:element name="seriesName" type="xs:string"></xs:element>
+               <xs:element name="seriesYear" type="xs:string"></xs:element>
+               <xs:element name="synopsis" type="xs:string"></xs:element>
+               <xs:element name="lastUpdateDate" type="xs:string"></xs:element>
+            </xs:sequence>
+         </xs:complexType>
+      </xs:schema>
+      <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://model.skytv.co.nz/puborch-productiondef/v1">
+         <xs:element name="assetType" type="ns3:assetType"></xs:element>
+         <xs:complexType name="assetType">
+            <xs:sequence>
+               <xs:element name="assetTypeId" type="xs:long"></xs:element>
+               <xs:element name="description" type="xs:string"></xs:element>
+               <xs:element name="mediaType" type="xs:string"></xs:element>
+               <xs:element name="details" type="xs:string"></xs:element>
+               <xs:element name="url" type="xs:string"></xs:element>
+            </xs:sequence>
+         </xs:complexType>
+      </xs:schema>
+   </wsdl:types>
+   <wsdl:message name="TransformRequest">
+      <wsdl:part name="parameters" element="ns1:TransformRequest"></wsdl:part>
+   </wsdl:message>
+   <wsdl:message name="TransformResponse">
+      <wsdl:part name="parameters" element="ns1:TransformResponse"></wsdl:part>
+   </wsdl:message>
+   <wsdl:portType name="InHouseContentMpxTransformServicePortType">
+      <wsdl:operation name="Transform">
+         <wsdl:input message="ns1:TransformRequest" wsaw:Action="urn:Transform"></wsdl:input>
+         <wsdl:output message="ns1:TransformResponse" wsaw:Action="http://service.skytv.co.nz/puborch-transform/v1/InHouseContentMpxTransformPortType/TransformResponse"></wsdl:output>
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="InHouseContentMpxTransformServiceSoap11Binding" type="ns1:InHouseContentMpxTransformServicePortType">
+      <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
+      <wsdl:operation name="Transform">
+         <soap:operation soapAction="urn:Transform" style="document"></soap:operation>
+         <wsdl:input>
+            <soap:body use="literal"></soap:body>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"></soap:body>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:binding name="InHouseContentMpxTransformServiceSoap12Binding" type="ns1:InHouseContentMpxTransformServicePortType">
+      <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap12:binding>
+      <wsdl:operation name="Transform">
+         <soap12:operation soapAction="urn:Transform" style="document"></soap12:operation>
+         <wsdl:input>
+            <soap12:body use="literal"></soap12:body>
+         </wsdl:input>
+         <wsdl:output>
+            <soap12:body use="literal"></soap12:body>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:binding name="InHouseContentMpxTransformServiceHttpBinding" type="ns1:InHouseContentMpxTransformServicePortType">
+      <http:binding verb="POST"></http:binding>
+      <wsdl:operation name="Transform">
+         <http:operation location="Transform"></http:operation>
+         <wsdl:input>
+            <mime:content type="text/xml" part="parameters"></mime:content>
+         </wsdl:input>
+         <wsdl:output>
+            <mime:content type="text/xml" part="parameters"></mime:content>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="InHouseContentMpxTransformService">
+      <wsdl:port name="InHouseContentMpxTransformServiceHttpsSoap11Endpoint" binding="ns1:InHouseContentMpxTransformServiceSoap11Binding">
+         <soap:address location="https://localhost:8244/services/InHouseContentMpxTransformService.InHouseContentMpxTransformServiceHttpsSoap11Endpoint"></soap:address>
+      </wsdl:port>
+      <wsdl:port name="InHouseContentMpxTransformServiceHttpSoap11Endpoint" binding="ns1:InHouseContentMpxTransformServiceSoap11Binding">
+         <soap:address location="http://localhost:8281/services/InHouseContentMpxTransformService.InHouseContentMpxTransformServiceHttpSoap11Endpoint"></soap:address>
+      </wsdl:port>
+      <wsdl:port name="InHouseContentMpxTransformServiceHttpsSoap12Endpoint" binding="ns1:InHouseContentMpxTransformServiceSoap12Binding">
+         <soap12:address location="https://localhost:8244/services/InHouseContentMpxTransformService.InHouseContentMpxTransformServiceHttpsSoap12Endpoint"></soap12:address>
+      </wsdl:port>
+      <wsdl:port name="InHouseContentMpxTransformServiceHttpSoap12Endpoint" binding="ns1:InHouseContentMpxTransformServiceSoap12Binding">
+         <soap12:address location="http://localhost:8281/services/InHouseContentMpxTransformService.InHouseContentMpxTransformServiceHttpSoap12Endpoint"></soap12:address>
+      </wsdl:port>
+      <wsdl:port name="InHouseContentMpxTransformServiceHttpEndpoint" binding="ns1:InHouseContentMpxTransformServiceHttpBinding">
+         <http:address location="http://localhost:8281/services/InHouseContentMpxTransformService.InHouseContentMpxTransformServiceHttpEndpoint"></http:address>
+      </wsdl:port>
+      <wsdl:port name="InHouseContentMpxTransformServiceHttpsEndpoint" binding="ns1:InHouseContentMpxTransformServiceHttpBinding">
+         <http:address
+	location="https://localhost:8244/services/InHouseContentMpxTransformService.InHouseContentMpxTransformServiceHttpsEndpoint"></http:address>
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>
