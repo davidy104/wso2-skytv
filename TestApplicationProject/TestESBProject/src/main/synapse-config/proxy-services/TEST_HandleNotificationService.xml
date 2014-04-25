@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="TEST_HandleNotificationService" transports="http https" startOnLoad="true" trace="disable">
+    <target>
+        <inSequence>
+            <payloadFactory media-type="xml">
+                <format>
+                    <ns1:HandleNotificationResponse xmlns:ns1="http://process.skytv.co.nz/puborc-medianotification/v1">
+						NOTIFICATION
+					</ns1:HandleNotificationResponse>
+                </format>
+                <args/>
+            </payloadFactory>
+            <property name="DISABLE_CHUNKING" value="true" scope="default" type="STRING"/>
+            <property name="HTTP_SC" value="202" scope="default" type="STRING"/>
+            <header name="To" scope="default" action="remove"/>
+            <property name="RESPONSE" value="true" scope="default" type="STRING"/>
+            <send/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </target>
+    <publishWSDL key="gov:/wsdl/TEST_HandleNotification_Wsdl.wsdl"/>
+</proxy>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api xmlns="http://ws.apache.org/ns/synapse" name="PIGSystemAPI" context="/pig-ws/rest/qt-mediastate/v1">
+    <resource methods="GET">
+        <inSequence>
+            <log level="custom">
+                <property name="PIGSYSTEM" value="### PIG SYSTEM MOCK RECEIVED DATA"/>
+                <property name="Processing Time : " expression="get-property('TIME')"/>
+                <property name="### TIME" expression="$url:time"/>
+                <property name="### STATE" expression="$url:state"/>
+                <property name="### MEDIAID" expression="$url:mediaID"/>
+                <property name="### GUID" expression="$url:guid"/>
+            </log>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

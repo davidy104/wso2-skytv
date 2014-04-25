@@ -1,0 +1,72 @@
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:ns2="http://model.skytv.co.nz/media-notification/v1" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://process.skytv.co.nz/puborc-medianotification/v1"
+	name="PubOrchMediaNotification" targetNamespace="http://process.skytv.co.nz/puborc-medianotification/v1">
+	<types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema"
+			attributeFormDefault="unqualified" elementFormDefault="qualified"
+			targetNamespace="http://model.skytv.co.nz/media-notification/v1">
+			<complexType name="HandleNotificationRequestType">
+				<sequence>
+					<element name="Notification" type="ns2:NotificationType" />
+				</sequence>
+			</complexType>
+			<complexType name="NotificationType">
+				<sequence>
+					<element name="time" type="string" />
+					<element name="state" type="string" />
+					<element name="mediaID" type="string" />
+					<element name="guid" type="string" />
+				</sequence>
+			</complexType>
+		</schema>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema"
+			attributeFormDefault="unqualified" elementFormDefault="qualified"
+			targetNamespace="http://process.skytv.co.nz/puborc-medianotification/v1">
+			<import namespace="http://model.skytv.co.nz/media-notification/v1" />
+			<element name="HandleNotificationRequest" type="ns2:HandleNotificationRequestType" />
+			<element name="HandleNotificationResponse">
+				<complexType>
+					<sequence>
+						<element name="result" type="string" />
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+	</types>
+	<message name="PubOrchMediaNotificationRequestMessage">
+		<part name="payload" element="tns:HandleNotificationRequest"></part>
+	</message>
+	<message name="PubOrchMediaNotificationResponseMessage">
+		<part name="payload" element="tns:HandleNotificationResponse"></part>
+	</message>
+	<portType name="PubOrchMediaNotification">
+		<operation name="process">
+			<input message="tns:PubOrchMediaNotificationRequestMessage"></input>
+			<output message="tns:PubOrchMediaNotificationResponseMessage"></output>
+		</operation>
+	</portType>
+	<binding name="PubOrchMediaNotificationBinding" type="tns:PubOrchMediaNotification">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<operation name="process">
+			<soap:operation
+				soapAction="http://process.skytv.co.nz/puborc-medianotification/v1/process" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+	</binding>
+	<service name="PubOrchMediaNotification">
+		<port name="PubOrchMediaNotificationPort" binding="tns:PubOrchMediaNotificationBinding">
+			<soap:address
+				location="http://localhost:9765/services/PubOrchMediaNotification/" />
+		</port>
+	</service>
+	<plnk:partnerLinkType name="PubOrchMediaNotification">
+		<plnk:role name="PubOrchMediaNotificationProvider" portType="tns:PubOrchMediaNotification" />
+	</plnk:partnerLinkType>
+</definitions>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/developerstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_f-PYEMynEeORpOnIJ6a4_A" type="Esb" name="api_PIGSystemAPI.esb_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_gCQVYMynEeORpOnIJ6a4_A" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_gCQ8cMynEeORpOnIJ6a4_A" type="7001">
+      <children xmi:type="notation:Shape" xmi:id="_haG5IMynEeORpOnIJ6a4_A" type="3668" fontName="Ubuntu">
+        <children xmi:type="notation:BasicCompartment" xmi:id="_haHgMMynEeORpOnIJ6a4_A" type="7044">
+          <children xmi:type="notation:Node" xmi:id="_haKjgMynEeORpOnIJ6a4_A" type="3669">
+            <children xmi:type="notation:Node" xmi:id="_haLxoMynEeORpOnIJ6a4_A" type="3670">
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_haLxocynEeORpOnIJ6a4_A"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_haLxosynEeORpOnIJ6a4_A" fontName="Ubuntu"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_haLxo8ynEeORpOnIJ6a4_A"/>
+              <element xmi:type="esb:APIResourceInputConnector" href="api_PIGSystemAPI.esb#//@server/@children.0/@resources.0/@inputConnector"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_haLxpMynEeORpOnIJ6a4_A" x="81" y="-15"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_haLxpcynEeORpOnIJ6a4_A" type="3671">
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_haLxpsynEeORpOnIJ6a4_A"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_haLxp8ynEeORpOnIJ6a4_A" fontName="Ubuntu"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_haLxqMynEeORpOnIJ6a4_A"/>
+              <element xmi:type="esb:APIResourceOutputConnector" href="api_PIGSystemAPI.esb#//@server/@children.0/@resources.0/@outputConnector"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_haLxqcynEeORpOnIJ6a4_A" x="81" y="-27"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_haLxqsynEeORpOnIJ6a4_A" type="3730">
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_haLxq8ynEeORpOnIJ6a4_A"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_haLxrMynEeORpOnIJ6a4_A" fontName="Ubuntu"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_haLxrcynEeORpOnIJ6a4_A"/>
+              <element xmi:type="esb:APIResourceOutSequenceOutputConnector" href="api_PIGSystemAPI.esb#//@server/@children.0/@resources.0/@outSequenceOutputConnector"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_haLxrsynEeORpOnIJ6a4_A" x="105" y="-15"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_haMYsMynEeORpOnIJ6a4_A" type="3672">
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_haMYscynEeORpOnIJ6a4_A"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_haMYssynEeORpOnIJ6a4_A" fontName="Ubuntu"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_haMYs8ynEeORpOnIJ6a4_A"/>
+              <element xmi:type="esb:APIResourceFaultInputConnector" href="api_PIGSystemAPI.esb#//@server/@children.0/@resources.0/@faultInputConnector"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_haMYtMynEeORpOnIJ6a4_A" x="81" y="3"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_haMYtcynEeORpOnIJ6a4_A" type="3673">
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_haMYtsynEeORpOnIJ6a4_A"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_haMYt8ynEeORpOnIJ6a4_A" fontName="Ubuntu"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_haMYuMynEeORpOnIJ6a4_A"/>
+              <element xmi:type="esb:ProxyServiceContainer" href="api_PIGSystemAPI.esb#//@server/@children.0/@resources.0/@container"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_haMYucynEeORpOnIJ6a4_A"/>
+            </children>
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_haKjgcynEeORpOnIJ6a4_A"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_haKjgsynEeORpOnIJ6a4_A" fontName="Ubuntu"/>
+            <styles xmi:type="notation:LineStyle" xmi:id="_haKjg8ynEeORpOnIJ6a4_A"/>
+            <element xmi:type="esb:APIResource" href="api_PIGSystemAPI.esb#//@server/@children.0/@resources.0"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_haKjhMynEeORpOnIJ6a4_A" width="300" height="400"/>
+          </children>
+        </children>
+        <element xmi:type="esb:SynapseAPI" href="api_PIGSystemAPI.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_haG5IcynEeORpOnIJ6a4_A" width="40000" height="45000"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_gCQVYcynEeORpOnIJ6a4_A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_gCQVYsynEeORpOnIJ6a4_A" fontName="Ubuntu"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_gCQVY8ynEeORpOnIJ6a4_A"/>
+    <element xmi:type="esb:EsbServer" href="api_PIGSystemAPI.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gCQVZMynEeORpOnIJ6a4_A"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_f-PYEcynEeORpOnIJ6a4_A"/>
+  <element xmi:type="esb:EsbDiagram" href="api_PIGSystemAPI.esb#/"/>
+  <edges xmi:type="notation:Connector" xmi:id="_hakzMMynEeORpOnIJ6a4_A" type="4001" source="_haLxpcynEeORpOnIJ6a4_A" target="_haabIMynEeORpOnIJ6a4_A" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_hakzMcynEeORpOnIJ6a4_A" fontName="Ubuntu"/>
+    <element xmi:type="esb:EsbLink" href="api_PIGSystemAPI.esb#//@server/@children.0/@resources.0/@outputConnector/@outgoingLink"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_hakzMsynEeORpOnIJ6a4_A" points="[11, 5, -5, 0]$[10, 0, -6, -5]"/>
+  </edges>
+</notation:Diagram>
