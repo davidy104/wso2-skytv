@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/developerstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_HPUEYMygEeORpOnIJ6a4_A" type="Esb" name="endpoint_PubOrchNotificationProduct_Endpoint.esb_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_HRw7cMygEeORpOnIJ6a4_A" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_HRxigMygEeORpOnIJ6a4_A" type="7001"/>
+    <children xmi:type="notation:Shape" xmi:id="_JzmmEMygEeORpOnIJ6a4_A" type="3642" fontName="Ubuntu">
+      <children xmi:type="notation:BasicCompartment" xmi:id="_JzmmEsygEeORpOnIJ6a4_A" type="7041">
+        <children xmi:type="notation:Node" xmi:id="_JzqQcMygEeORpOnIJ6a4_A" type="3653">
+          <children xmi:type="notation:DecorationNode" xmi:id="_Jzq3gMygEeORpOnIJ6a4_A" type="5163"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_JzqQccygEeORpOnIJ6a4_A"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_JzqQcsygEeORpOnIJ6a4_A" fontName="Ubuntu"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_JzqQc8ygEeORpOnIJ6a4_A"/>
+          <element xmi:type="esb:WSDLEndPoint" href="endpoint_PubOrchNotificationProduct_Endpoint.esb#//@server/@children.0/@child"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JzqQdMygEeORpOnIJ6a4_A" width="75" height="75"/>
+        </children>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_JzmmE8ygEeORpOnIJ6a4_A" showTitle="true"/>
+      </children>
+      <element xmi:type="esb:EndpointDiagram" href="endpoint_PubOrchNotificationProduct_Endpoint.esb#//@server/@children.0"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JzmmEcygEeORpOnIJ6a4_A" width="110" height="100"/>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_HRw7ccygEeORpOnIJ6a4_A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_HRw7csygEeORpOnIJ6a4_A" fontName="Ubuntu"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_HRw7c8ygEeORpOnIJ6a4_A"/>
+    <element xmi:type="esb:EsbServer" href="endpoint_PubOrchNotificationProduct_Endpoint.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HRw7dMygEeORpOnIJ6a4_A"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_HPUEYcygEeORpOnIJ6a4_A"/>
+  <element xmi:type="esb:EsbDiagram" href="endpoint_PubOrchNotificationProduct_Endpoint.esb#/"/>
+</notation:Diagram>

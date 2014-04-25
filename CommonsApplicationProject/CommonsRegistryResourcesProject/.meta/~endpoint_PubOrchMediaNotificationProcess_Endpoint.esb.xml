@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><resource name="endpoint_PubOrchMediaNotificationProcess_Endpoint.esb" isCollection="false" path="/_system/governance/endpoints//CommonsRegistryResourcesProject/endpoint_PubOrchMediaNotificationProcess_Endpoint.esb" registryUrl="https://localhost:9443/registry" md5="791744db02f2a881de0c88e10b9b01a7">
+    <mediaType>null</mediaType>
+    <version>1844</version>
+    <creator>admin</creator>
+    <createdTime>1398447376189</createdTime>
+    <lastUpdater>admin</lastUpdater>
+    <lastModified>1398447376189</lastModified>
+    <registryState>1</registryState>
+    <description/>
+</resource>

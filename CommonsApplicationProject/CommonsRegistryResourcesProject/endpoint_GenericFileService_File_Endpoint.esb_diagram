@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/developerstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_MwKTQMyfEeORpOnIJ6a4_A" type="Esb" name="endpoint_GenericFileService_File_Endpoint.esb_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_NBIugMyfEeORpOnIJ6a4_A" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_NBIuhcyfEeORpOnIJ6a4_A" type="7001"/>
+    <children xmi:type="notation:Shape" xmi:id="_OKCQQMyfEeORpOnIJ6a4_A" type="3642" fontName="Ubuntu">
+      <children xmi:type="notation:BasicCompartment" xmi:id="_OKC3UMyfEeORpOnIJ6a4_A" type="7041">
+        <children xmi:type="notation:Node" xmi:id="_OKHIwMyfEeORpOnIJ6a4_A" type="3646">
+          <children xmi:type="notation:DecorationNode" xmi:id="_OKHIxcyfEeORpOnIJ6a4_A" type="5161"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_OKHIwcyfEeORpOnIJ6a4_A"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_OKHIwsyfEeORpOnIJ6a4_A" fontName="Ubuntu"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_OKHIw8yfEeORpOnIJ6a4_A"/>
+          <element xmi:type="esb:AddressEndPoint" href="endpoint_GenericFileService_File_Endpoint.esb#//@server/@children.0/@child"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OKHIxMyfEeORpOnIJ6a4_A" width="75" height="75"/>
+        </children>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_OKC3UcyfEeORpOnIJ6a4_A" showTitle="true"/>
+      </children>
+      <element xmi:type="esb:EndpointDiagram" href="endpoint_GenericFileService_File_Endpoint.esb#//@server/@children.0"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OKCQQcyfEeORpOnIJ6a4_A" width="110" height="100"/>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_NBIugcyfEeORpOnIJ6a4_A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_NBIugsyfEeORpOnIJ6a4_A" fontName="Ubuntu"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_NBIug8yfEeORpOnIJ6a4_A"/>
+    <element xmi:type="esb:EsbServer" href="endpoint_GenericFileService_File_Endpoint.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NBIuhMyfEeORpOnIJ6a4_A"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_MwKTQcyfEeORpOnIJ6a4_A"/>
+  <element xmi:type="esb:EsbDiagram" href="endpoint_GenericFileService_File_Endpoint.esb#/"/>
+</notation:Diagram>
