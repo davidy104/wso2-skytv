@@ -1,0 +1,91 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="https://service.skytv.co.nz/puborch-fileService/v1" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="https://service.skytv.co.nz/puborch-fileService/v1">
+   <wsdl:types>
+      <xsd:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="https://service.skytv.co.nz/puborch-fileService/v1">
+         <xsd:element name="SendToFileServiceRequest">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="fileName" type="xsd:string"></xsd:element>
+                  <xsd:element name="destination" type="xsd:string"></xsd:element>
+                  <xsd:element name="contents" type="xsd:string"></xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="SendToFileServiceResponse">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="result" type="xsd:string"></xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:schema>
+   </wsdl:types>
+   <wsdl:message name="SendToFileServiceRequest">
+      <wsdl:part name="parameters" element="ns1:SendToFileServiceRequest"></wsdl:part>
+   </wsdl:message>
+   <wsdl:message name="SendToFileServiceResponse">
+      <wsdl:part name="parameters" element="ns1:SendToFileServiceResponse"></wsdl:part>
+   </wsdl:message>
+   <wsdl:portType name="GenericFileServicePortType">
+      <wsdl:operation name="SendFile">
+         <wsdl:input message="ns1:SendToFileServiceRequest" wsaw:Action="https://service.skytv.co.nz/puborch-fileService/v1/SendFile"></wsdl:input>
+         <wsdl:output message="ns1:SendToFileServiceResponse" wsaw:Action="https://service.skytv.co.nz/puborch-fileService/v1/FileServicePortType/SendFileResponse"></wsdl:output>
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="GenericFileServiceSoap11Binding" type="ns1:GenericFileServicePortType">
+      <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
+      <wsdl:operation name="SendFile">
+         <soap:operation soapAction="https://service.skytv.co.nz/puborch-fileService/v1/SendFile" style="document"></soap:operation>
+         <wsdl:input>
+            <soap:body use="literal"></soap:body>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"></soap:body>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:binding name="GenericFileServiceSoap12Binding" type="ns1:GenericFileServicePortType">
+      <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap12:binding>
+      <wsdl:operation name="SendFile">
+         <soap12:operation soapAction="https://service.skytv.co.nz/puborch-fileService/v1/SendFile" style="document"></soap12:operation>
+         <wsdl:input>
+            <soap12:body use="literal"></soap12:body>
+         </wsdl:input>
+         <wsdl:output>
+            <soap12:body use="literal"></soap12:body>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:binding name="GenericFileServiceHttpBinding" type="ns1:GenericFileServicePortType">
+      <http:binding verb="POST"></http:binding>
+      <wsdl:operation name="SendFile">
+         <http:operation location="SendFile"></http:operation>
+         <wsdl:input>
+            <mime:content type="text/xml" part="parameters"></mime:content>
+         </wsdl:input>
+         <wsdl:output>
+            <mime:content type="text/xml" part="parameters"></mime:content>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="GenericFileService">
+      <wsdl:port name="GenericFileServiceHttpSoap11Endpoint" binding="ns1:GenericFileServiceSoap11Binding">
+         <soap:address location="http://localhost:8281/services/GenericFileService.GenericFileServiceHttpSoap11Endpoint"></soap:address>
+      </wsdl:port>
+      <wsdl:port name="GenericFileServiceHttpsSoap11Endpoint" binding="ns1:GenericFileServiceSoap11Binding">
+         <soap:address location="https://localhost:8244/services/GenericFileService.GenericFileServiceHttpsSoap11Endpoint"></soap:address>
+      </wsdl:port>
+      <wsdl:port name="GenericFileServiceHttpSoap12Endpoint" binding="ns1:GenericFileServiceSoap12Binding">
+         <soap12:address location="http://localhost:8281/services/GenericFileService.GenericFileServiceHttpSoap12Endpoint"></soap12:address>
+      </wsdl:port>
+      <wsdl:port name="GenericFileServiceHttpsSoap12Endpoint" binding="ns1:GenericFileServiceSoap12Binding">
+         <soap12:address location="https://localhost:8244/services/GenericFileService.GenericFileServiceHttpsSoap12Endpoint"></soap12:address>
+      </wsdl:port>
+      <wsdl:port name="GenericFileServiceHttpsEndpoint" binding="ns1:GenericFileServiceHttpBinding">
+         <http:address location="https://localhost:8244/services/GenericFileService.GenericFileServiceHttpsEndpoint"></http:address>
+      </wsdl:port>
+      <wsdl:port name="GenericFileServiceHttpEndpoint" binding="ns1:GenericFileServiceHttpBinding">
+         <http:address
+	location="http://localhost:8281/services/GenericFileService.GenericFileServiceHttpEndpoint"></http:address>
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>
