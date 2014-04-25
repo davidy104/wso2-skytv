@@ -1,0 +1,82 @@
+--House or Standard Media Query
+SELECT distinct
+  pdv.company_id as "Provider ID"
+FROM programme_detail_view pdv
+JOIN version v on (v.title_id = pdv.title_id)
+JOIN version_copy vc on (v.version_id = vc.version_id)
+join media_match mm on (vc.version_copy_id = mm.version_copy_id)
+join media_item mi on (mm.media_item_id = mi.media_item_id)
+where mi.house_media = ?
+
+--House Metadata Query
+SELECT distinct
+      pdv.title_id as "Title ID",
+      pdv.programme_name AS "Title/Episode Name",
+      pdv.deal_type_desc as "Type", 
+      g.parent_genre_id as "Genre ID",
+      pdv.genre_name as "SubGenre",
+      el.synopsis as "Summary",
+      pdv.company_name as "Distributor",
+      pdv.company_id as "Provider ID",
+      pdv.episode_no as "Episode Number",
+      pdv.year_of_production as "Year",
+      s.series_id as "Series ID",
+      s.series_name as "Series Name",
+      s.series_id as "Season ID",
+      pdv.series_name as "Season Name",
+      s.series_year as "Season Number",
+      oelv.synopsis as "Series Synopsis",
+      t.marked_as_deleted as "State",
+      v.certification_code as "Certification",
+      tstr(cs.duration) as "Duration",
+      tl.table_description as "Audio Type",
+      mi.house_media as "Media ID"
+FROM programme_detail_view pdv
+JOIN epg_language el on (pdv.title_id = el.title_id)
+JOIN title t on (pdv.title_id = t.title_id)
+LEFT JOIN series s on (pdv.series_id = s.series_id)
+JOIN purchase p on (pdv.purchase_id = p.purchase_id)
+JOIN deal d on (p.deal_id = d.deal_id)
+JOIN version v on (pdv.title_id = v.title_id)
+JOIN genre g on (pdv.genre_id = g.genre_id)
+JOIN object_epg_language_view oelv on (d.deal_id = oelv.object_id)
+JOIN version_copy vc on (v.version_id = vc.version_id)
+JOIN table_line tl on (tl.table_code = v.audio and tl.table_id = 'AUDIO')
+LEFT JOIN table_line_combinations tlv on (tlv.tl2_table_code = v.aspect_ratio and tlv.tl2_table_id = 'VERTYP')
+JOIN component c on (vc.version_copy_id = c.version_copy_id)
+JOIN component_segment cs on (c.component_id = cs.component_id)
+JOIN media_match mm on (v.version_id = mm.version_id)
+JOIN media_item mi on (mm.media_item_id = mi.media_item_id)
+WHERE mi.house_media = ?
+
+--House Keywords Query
+select distinct
+k.keyword
+FROM programme_detail_view pdv
+JOIN version v on (v.title_id = pdv.title_id)
+JOIN version_copy vc on (v.version_id = vc.version_id)
+join media_match mm on (vc.version_copy_id = mm.version_copy_id)
+join media_item mi on (mm.media_item_id = mi.media_item_id)
+join keyword_use ku on pdv.title_id = ku.object_id
+join keyword k on k.keyword_id = ku.keyword_id
+where mi.house_media = ?
+
+--House Cast Query
+SELECT 
+        c.cast_id,
+        tl.table_line_isn AS role_id,
+        tl.table_description AS rolename,
+        c.cast_order,
+        cm.cast_first_name AS firstname, 
+        cm.cast_last_name AS lastname
+FROM cast c 
+        JOIN cast_member cm ON (cm.cast_id=c.cast_id)
+        JOIN table_line tl ON (tl.table_code = c.cast_type AND tl.table_id = 'CAST')
+WHERE c.object_type='TI' AND c.object_id = (IBMS titleID)
+ORDER BY cast_order
+
+--House Genre Name
+select g.genre_name
+from genre g 
+where g.genre_id = Genre ID from House metadata query
+

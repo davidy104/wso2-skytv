@@ -1,0 +1,15 @@
+<body>
+   <p:SendToFileServiceRequest xmlns:p="https://service.skytv.co.nz/puborch-fileService/v1">
+      <!--Exactly 1 occurrence-->
+      <fileName>test01.xml</fileName>
+      <!--Exactly 1 occurrence-->
+      <destination>FTP</destination>
+      <!--Exactly 1 occurrence-->
+      <contents>
+      <rss>
+      <xs:roleName xmlns:xs="http://model.skytv.co.nz/vod/v1">Actor</xs:roleName>
+      <xs:firstName xmlns:xs="http://model.skytv.co.nz/vod/v1">Bob</xs:firstName>
+      </rss>
+      </contents>
+   </p:SendToFileServiceRequest>
+</body>

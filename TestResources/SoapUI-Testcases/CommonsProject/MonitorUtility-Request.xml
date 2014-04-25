@@ -1,0 +1,17 @@
+<body>
+   <p:Monitor xmlns:p="http://service.skytv.co.nz/monitor-utility/v1">
+      <!--Exactly 1 occurrence-->
+      <ns2:MonitorRecord xmlns:ns2="http://model.skytv.co.nz/monitor-utility/v1">
+         <!--Exactly 1 occurrence-->
+         <xs:serviceName xmlns:xs="http://model.skytv.co.nz/monitor-utility/v1">PubOrchMediaNotificationProcess</xs:serviceName>
+         <!--0 to 1 occurrence-->
+         <xs:instanceId xmlns:xs="http://model.skytv.co.nz/monitor-utility/v1">1234567890</xs:instanceId>
+         <!--Exactly 1 occurrence-->
+         <xs:status xmlns:xs="http://model.skytv.co.nz/monitor-utility/v1">FINISHED</xs:status>
+         <!--Exactly 1 occurrence-->
+         <xs:dateTime xmlns:xs="http://model.skytv.co.nz/monitor-utility/v1">2014-04-07 12:00:00</xs:dateTime>
+         <!--Exactly 1 occurrence-->
+         <details xmlns="http://model.skytv.co.nz/monitor-utility/v1"></details>
+      </ns2:MonitorRecord>
+   </p:Monitor>
+</body>

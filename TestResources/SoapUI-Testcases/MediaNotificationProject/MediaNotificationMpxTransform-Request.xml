@@ -1,0 +1,48 @@
+<body>
+   <p:TransformRequest xmlns:p="http://service.skytv.co.nz/puborch-transform/v1">
+	<!--Exactly 1 occurrence -->
+	<fromType>?</fromType>
+	<!--Exactly 1 occurrence -->
+	<toType>?</toType>
+	<!--Exactly 1 occurrence -->
+	<source>
+		<!--Exactly 1 occurrence -->
+		<ns2:Media xmlns:ns2="http://model.skytv.co.nz/vod/v1">
+			<!--Exactly 1 occurrence -->
+			<xs:guid xmlns:xs="http://model.skytv.co.nz/vod/v1">1111</xs:guid>
+			<!--Exactly 1 occurrence -->
+			<xs:titleId xmlns:xs="http://model.skytv.co.nz/vod/v1">12345</xs:titleId>
+			<!--Exactly 1 occurrence -->
+			<xs:titleName xmlns:xs="http://model.skytv.co.nz/vod/v1">Buffy The Vampire Slayer</xs:titleName>
+			<!--Exactly 1 occurrence -->
+			<xs:certification xmlns:xs="http://model.skytv.co.nz/vod/v1">PG</xs:certification>
+			<!--Exactly 1 occurrence -->
+			<xs:duration xmlns:xs="http://model.skytv.co.nz/vod/v1">30</xs:duration>
+			<!--Exactly 1 occurrence -->
+			<xs:audioType xmlns:xs="http://model.skytv.co.nz/vod/v1">Dolby</xs:audioType>
+			<!--Exactly 1 occurrence -->
+			<xs:aspectRatio xmlns:xs="http://model.skytv.co.nz/vod/v1">4:3</xs:aspectRatio>
+			<!--Exactly 1 occurrence -->
+			<xs:screenFormat xmlns:xs="http://model.skytv.co.nz/vod/v1">Normal</xs:screenFormat>
+			<!--Exactly 1 occurrence -->
+			<xs:mediaId xmlns:xs="http://model.skytv.co.nz/vod/v1">K0000209</xs:mediaId>
+		</ns2:Media>
+		<!--Exactly 1 occurrence -->
+		<videos>
+			<!--0 or more occurrences -->
+			<ns3:assetType xmlns:ns3="http://model.skytv.co.nz/puborch-productiondef/v1">
+				<!--Exactly 1 occurrence -->
+				<xs:assetTypeId xmlns:xs="http://model.skytv.co.nz/puborch-productiondef/v1">1</xs:assetTypeId>
+				<!--Exactly 1 occurrence -->
+				<xs:description xmlns:xs="http://model.skytv.co.nz/puborch-productiondef/v1">1200</xs:description>
+				<!--Exactly 1 occurrence -->
+				<xs:mediaType xmlns:xs="http://model.skytv.co.nz/puborch-productiondef/v1">mediaType</xs:mediaType>
+				<!--Exactly 1 occurrence -->
+				<xs:details xmlns:xs="http://model.skytv.co.nz/puborch-productiondef/v1">dddd</xs:details>
+				<!--Exactly 1 occurrence -->
+				<xs:url xmlns:xs="http://model.skytv.co.nz/puborch-productiondef/v1">//location</xs:url>
+			</ns3:assetType>
+		</videos>
+	</source>
+</p:TransformRequest>
+</body>

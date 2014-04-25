@@ -1,0 +1,54 @@
+<body>
+   <p:TransformRequest xmlns:p="http://service.skytv.co.nz/puborch-transform/v1">
+      <!--Exactly 1 occurrence-->
+      <fromType>SKY</fromType>
+      <!--Exactly 1 occurrence-->
+      <toType>MPns2TUB</toType>
+      <!--Exactly 1 occurrence-->
+      <source>
+         <!--0 or more occurrences-->
+         <ns2:Title xmlns:ns2="http://model.skytv.co.nz/vod/v1">
+            <!--Exactly 1 occurrence-->
+            <xs:titleId xmlns:xs="http://model.skytv.co.nz/vod/v1">1234</xs:titleId>
+            <!--Exactly 1 occurrence-->
+            <xs:title xmlns:xs="http://model.skytv.co.nz/vod/v1">Buffy The Vampire Slayer</xs:title>
+            <!--Exactly 1 occurrence-->
+            <xs:episodeNumber xmlns:xs="http://model.skytv.co.nz/vod/v1">1</xs:episodeNumber>
+            <!--Exactly 1 occurrence-->
+            <xs:yearOfProduction xmlns:xs="http://model.skytv.co.nz/vod/v1">1995</xs:yearOfProduction>
+            <!--Exactly 1 occurrence-->
+            <xs:type xmlns:xs="http://model.skytv.co.nz/vod/v1">Series</xs:type>
+            <!--Exactly 1 occurrence-->
+            <xs:distributor xmlns:xs="http://model.skytv.co.nz/vod/v1">FOX</xs:distributor>
+            <!--Exactly 1 occurrence-->
+            <xs:contentProviderId xmlns:xs="http://model.skytv.co.nz/vod/v1">789</xs:contentProviderId>
+            <!--Exactly 1 occurrence-->
+            <xs:state xmlns:xs="http://model.skytv.co.nz/vod/v1">0</xs:state>
+            <!--Exactly 1 occurrence-->
+            <xs:seriesId xmlns:xs="http://model.skytv.co.nz/vod/v1">789</xs:seriesId>
+            <!--Exactly 1 occurrence-->
+            <xs:seriesName xmlns:xs="http://model.skytv.co.nz/vod/v1">Buffy</xs:seriesName>
+            <!--Exactly 1 occurrence-->
+            <xs:seriesYear xmlns:xs="http://model.skytv.co.nz/vod/v1">1989</xs:seriesYear>
+            <!--Exactly 1 occurrence-->
+            <xs:synopsis xmlns:xs="http://model.skytv.co.nz/vod/v1">Buffy and the Scooby Gang fight vampires</xs:synopsis>
+            <!--Exactly 1 occurrence-->
+            <ns2:casts>
+               <!--0 to 1 occurrence-->
+               <ns2:cast>
+                  <!--Exactly 1 occurrence-->
+                  <xs:castId xmlns:xs="http://model.skytv.co.nz/vod/v1">24</xs:castId>
+                  <!--Exactly 1 occurrence-->
+                  <xs:roleId xmlns:xs="http://model.skytv.co.nz/vod/v1">3</xs:roleId>
+                  <!--Exactly 1 occurrence-->
+                  <xs:roleName xmlns:xs="http://model.skytv.co.nz/vod/v1">Actor</xs:roleName>
+                  <!--Exactly 1 occurrence-->
+                  <xs:firstName xmlns:xs="http://model.skytv.co.nz/vod/v1">Bob</xs:firstName>
+                  <!--Exactly 1 occurrence-->
+                  <xs:lastName xmlns:xs="http://model.skytv.co.nz/vod/v1">Down</xs:lastName>
+               </ns2:cast>
+            </ns2:casts>
+         </ns2:Title>
+      </source>
+   </p:TransformRequest>
+</body>

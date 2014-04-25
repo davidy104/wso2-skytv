@@ -1,0 +1,56 @@
+<body>
+   <ns1:TransformRequest xmlns:ns1="http://service.skytv.co.nz/puborch-transform/v1" xmlns:ns2="http://model.skytv.co.nz/vod/v1" xmlns:ns3="http://model.skytv.co.nz/puborch-productiondef/v1">
+	<fromType>SKY</fromType>
+	<toType>MPXMEDIA</toType>
+	<source>
+		<ns2:Media xmlns="http://model.skytv.co.nz/vod/v1">
+			<ns2:titleId>12345</ns2:titleId>
+			<ns2:titleName>Buffy The Vampire Slayer</ns2:titleName>
+			<ns2:certification>PG</ns2:certification>
+			<ns2:duration>30</ns2:duration>
+			<ns2:audioType>Dolby</ns2:audioType>
+			<ns2:aspectRatio>4:3</ns2:aspectRatio>
+			<ns2:screenFormat>Normal</ns2:screenFormat>
+		</ns2:Media>
+
+		<ns2:Title xmlns="http://model.skytv.co.nz/vod/v1">
+			<ns2:titleId>
+				6770
+			</ns2:titleId>
+			<ns2:title>
+				Silverado
+			</ns2:title>
+			<ns2:episodeNumber>
+				0
+			</ns2:episodeNumber>
+			<ns2:yearOfProduction>
+				1985
+			</ns2:yearOfProduction>
+			<ns2:type>
+				Movie
+			</ns2:type>
+			<ns2:distributor>
+				Columbia Tristar Intl TV
+			</ns2:distributor>
+			<ns2:contentProviderId>
+				4
+			</ns2:contentProviderId>
+			<ns2:state>
+				0
+			</ns2:state>
+			<ns2:seriesId xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" />
+			<ns2:seriesName xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" />
+			<ns2:seriesYear xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" />
+			<ns2:synopsis>Western: Classic style adventure about four friends, who team up to fight injustice in a small town. Starring: Kevin Kline, Kevin Costner, Danny
+				Glover,
+				Scott
+				Glenn.
+			</ns2:synopsis>
+			<ns2:lastUpdateDate>
+				20140318
+			</ns2:lastUpdateDate>
+		</ns2:Title>
+
+	</source>
+</ns1:TransformRequest>
+</body>
