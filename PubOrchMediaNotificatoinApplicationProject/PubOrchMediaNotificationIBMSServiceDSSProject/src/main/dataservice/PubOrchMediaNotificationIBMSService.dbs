@@ -1,0 +1,40 @@
+<data name="PubOrchMediaNotificationIBMSService" serviceNamespace="http://service.skytv.co.nz/ibms/v1">
+    <config id="default">
+        <property name="carbon_datasource_name">MilanoPubOrchDataSource</property>
+    </config>
+    <query id="SELECT_MEDIAPROVIDER_BY_MEDIAID" useConfig="default">
+        <sql>select nvl(max(tv.company_id), '') as provider_id 
+from title_view tv, INHOUSE_STANDARD_MEDIA_VIEW ihsm 
+where ihsm.title_id = tv.title_id and ihsm.house_media = :mediaID</sql>
+        <result element="GetMediaProviderResponse" rowName="">
+            <element column="PROVIDER_ID" name="mediaProvider" xsdType="string"/>
+        </result>
+        <param name="mediaID" sqlType="STRING"/>
+    </query>
+    <query id="SELECT_VODEMEDIAMETADATA_BY_MEDIAID" useConfig="default">
+        <sql>select a.TITLE_ID,a.TITLE_EPISODE_NAME,a.MSORATING,a.DURATION,a.HUMAN_READABLE_ASPECT_RATIO,a.AUDIO,a.SCREEN_FORMAT, b.house_media from MEDIA_METADATA_VIEW a, INHOUSE_STANDARD_MEDIA_VIEW b where a.title_id = b.title_id and b.house_media = :mediaID</sql>
+        <result element="GetVodMediaMetadataResponse" rowName="">
+            <element name="Media" namespace="http://model.skytv.co.nz/vod/v1">
+                <element column="TITLE_ID" name="titleId" xsdType="string"/>
+                <element column="TITLE_EPISODE_NAME" name="titleName" xsdType="string"/>
+                <element column="MSORATING" name="certification" xsdType="string"/>
+                <element column="DURATION" name="duration" xsdType="string"/>
+                <element column="AUDIO" name="audioType" xsdType="string"/>
+                <element column="HUMAN_READABLE_ASPECT_RATIO" name="aspectRatio" xsdType="string"/>
+                <element column="SCREEN_FORMAT" name="screenFormat" xsdType="string"/>
+                <element column="house_media" name="mediaID" xsdType="string"/>
+            </element>
+        </result>
+        <param name="mediaID" sqlType="STRING"/>
+    </query>
+    <operation name="GetMediaProvider">
+        <call-query href="SELECT_MEDIAPROVIDER_BY_MEDIAID">
+            <with-param name="mediaID" query-param="mediaID"/>
+        </call-query>
+    </operation>
+    <operation name="GetVodMediaMetadata">
+        <call-query href="SELECT_VODEMEDIAMETADATA_BY_MEDIAID">
+            <with-param name="mediaID" query-param="mediaID"/>
+        </call-query>
+    </operation>
+</data>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="CreateMessage_InSequence">
+    <log level="custom">
+        <property name="### TIME" expression="$url:time"/>
+        <property name="### STATE" expression="$url:state"/>
+        <property name="### MEDIAID" expression="$url:mediaID"/>
+        <property name="### GUID" expression="$url:guid"/>
+    </log>
+    <payloadFactory media-type="xml">
+        <format>
+            <HandleNotificationRequest xmlns="http://process.skytv.co.nz/puborc-medianotification/v1">
+                <Notification xmlns:ns2="http://model.skytv.co.nz/media-notification/v1">
+                    <ns2:time>$1</ns2:time>
+                    <ns2:state>$2</ns2:state>
+                    <ns2:mediaID>$3</ns2:mediaID>
+                    <ns2:guid>$4</ns2:guid>
+                </Notification>
+            </HandleNotificationRequest>
+        </format>
+        <args>
+            <arg xmlns:ns="http://org.apache.synapse/xsd" evaluator="xml" expression="$url:time"/>
+            <arg xmlns:ns="http://org.apache.synapse/xsd" evaluator="xml" expression="$url:state"/>
+            <arg xmlns:ns="http://org.apache.synapse/xsd" evaluator="xml" expression="$url:mediaID"/>
+            <arg xmlns:ns="http://org.apache.synapse/xsd" evaluator="xml" expression="$url:guid"/>
+        </args>
+    </payloadFactory>
+</sequence>

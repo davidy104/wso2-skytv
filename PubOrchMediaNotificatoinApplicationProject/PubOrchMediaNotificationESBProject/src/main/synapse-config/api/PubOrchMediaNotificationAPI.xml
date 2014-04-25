@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api xmlns="http://ws.apache.org/ns/synapse" name="PubOrchMediaNotificationAPI" context="/isl-ws/rest/qt-mediastate/v1">
+    <resource methods="GET">
+        <inSequence>
+            <property name="DISABLE_CHUNKING" value="true" scope="default" type="STRING"/>
+            <property name="OUT_ONLY" value="true" scope="axis2" type="STRING"/>
+            <sequence key="CreateMessage_InSequence"/>
+            <log level="custom">
+                <property name="##### PayLood Result" expression="$body"/>
+            </log>
+            <property name="DISABLE_CHUNKING" value="true" scope="axis2" type="STRING"/>
+            <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2" type="STRING"/>
+            <header name="Action" scope="default" value="process"/>
+            <send>
+                <endpoint key="gov:/endpoints/PubOrchMediaNotificationProcess_Endpoint.xml"/>
+            </send>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

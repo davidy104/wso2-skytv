@@ -1,0 +1,26 @@
+<data name="ProductDefinitionService" serviceNamespace="http://service.skytv.co.nz/puborch-productdef/v1">
+    <config id="default">
+        <property name="carbon_datasource_name">MilanoPubOrchDataSource</property>
+    </config>
+    <query id="GetVideoTypesQuery" useConfig="default">
+        <sql>SELECT p.PLATFORM_ID, p.PLATFORM_KEY, a.ASSET_TYPE_ID, a.ASSET_TYPE_DESC, a.MEDIA_TYPE, 
+ihat.file_location 
+FROM PLATFORM p
+INNER JOIN PLATFORM_ASSET_TYPE pat ON p.PLATFORM_ID = pat.PLATFORM_ID
+INNER JOIN ASSET_TYPE a ON pat.ASSET_TYPE_ID = a.ASSET_TYPE_ID
+inner JOIN IN_HOUSE ih ON p.PLATFORM_ID = ih.PLATFORM_ID
+inner join in_house_asset_type ihat on ihat.in_house_id = ih.in_house_id;
+</sql>
+        <result element="GetVideoTypesResponse" rowName="">
+            <element name="assetType" namespace="http://model.skytv.co.nz/puborch-productiondef/v1">
+                <element column="ASSET_TYPE_ID" name="assetTypeId" xsdType="string"/>
+                <element column="ASSET_TYPE_DESC" name="description" xsdType="string"/>
+                <element column="MEDIA_TYPE" name="mediaType" xsdType="string"/>
+                <element column="file_location" name="url" xsdType="string"/>
+            </element>
+        </result>
+    </query>
+    <operation name="GetVideoTypes">
+        <call-query href="GetVideoTypesQuery"/>
+    </operation>
+</data>

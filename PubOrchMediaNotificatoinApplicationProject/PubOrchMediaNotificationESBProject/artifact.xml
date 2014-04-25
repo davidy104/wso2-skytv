@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="PubOrchMediaNotificationAPI" groupId="co.nz.skytv.PubOrchMediaNotificationESBProject.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/PubOrchMediaNotificationAPI.xml</file>
+    </artifact>
+    <artifact name="CreateMessage_InSequence" groupId="co.nz.skytv.PubOrchMediaNotificationESBProject.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/CreateMessage_InSequence.xml</file>
+    </artifact>
+    <artifact name="PIGMediaNotificationService_InSequence" groupId="co.nz.skytv.PubOrchMediaNotificationESBProject.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/PIGMediaNotificationService_InSequence.xml</file>
+    </artifact>
+    <artifact name="PIGMediaNotificationService" groupId="co.nz.skytv.PubOrchMediaNotificationESBProject.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/PIGMediaNotificationService.xml</file>
+    </artifact>
+    <artifact name="MediaNotificationMpxTransformService" groupId="co.nz.skytv.PubOrchMediaNotificationESBProject.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/MediaNotificationMpxTransformService.xml</file>
+    </artifact>
+</artifacts>

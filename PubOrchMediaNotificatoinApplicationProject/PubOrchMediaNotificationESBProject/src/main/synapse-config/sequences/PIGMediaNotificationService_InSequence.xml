@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="PIGMediaNotificationService_InSequence">
+    <log level="custom">
+        <property name="##### InSequence Log" value="#### PIGMediaNotificationService_InSequence"/>
+    </log>
+    <property name="CONTENT_TYPE" value="application/xml" scope="axis2" type="STRING"/>
+    <enrich>
+        <source xmlns:p="http://model.skytv.co.nz/media-notification/v1" clone="true" xpath="//p:Notification/*"/>
+        <target type="body"/>
+    </enrich>
+    <property xmlns:p="http://model.skytv.co.nz/media-notification/v1" name="REST_URL_POSTFIX" expression="fn:concat('?time=', //p:time, '&amp;state=' , //p:state, '&amp;mediaID=', //p:mediaID, '&amp;guid=', //p:guid)" scope="axis2" type="STRING"/>
+    <property name="HTTP_METHOD" value="GET" scope="axis2" type="STRING"/>
+    <send>
+        <endpoint key="gov:/endpoints/PIGMediaNotificationService_Endpoint.xml"/>
+    </send>
+</sequence>

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:ns1="http://service.skytv.co.nz/puborch-transform/v1" xmlns:ns2="http://model.skytv.co.nz/vod/v1"
+	xmlns:ns3="http://model.skytv.co.nz/puborch-productiondef/v1"
+	xmlns:sky="http://xml.theplatform.com/media/data/sky" xmlns:media="http://search.yahoo.com/mrss/"
+	xmlns:plfile="http://xml.theplatform.com/media/data/MediaFile"
+	xmlns:plingestmf="http://xml.theplatform.com/ingest/data/IngestMediaFile"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	name="MediaNotificationMpxTransformService" targetNamespace="http://service.skytv.co.nz/puborch-transform/v1">
+	<wsdl:types>
+		<xs:schema targetNamespace="http://service.skytv.co.nz/puborch-transform/v1">
+			<xs:import namespace="http://model.skytv.co.nz/vod/v1" />
+			<xs:import namespace="http://model.skytv.co.nz/puborch-productiondef/v1" />
+			<xs:import namespace="http://xml.theplatform.com/media/data/sky" />
+			<xs:import namespace="http://search.yahoo.com/mrss/" />
+			<xs:import namespace="http://xml.theplatform.com/media/data/MediaFile" />
+			<xs:import namespace="http://xml.theplatform.com/ingest/data/IngestMediaFile" />
+
+
+			<xs:element name="TransformRequest" type="ns1:TransformRequest" />
+			<xs:complexType name="TransformRequest">
+				<xs:sequence>
+					<xs:element name="fromType" type="xs:string" />
+					<xs:element name="toType" type="xs:string" />
+					<xs:element name="source">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element ref="ns2:Media" />
+								<xs:element name="videos">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element minOccurs="0" maxOccurs="unbounded"
+												ref="ns3:assetType" />
+										</xs:sequence>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:element name="TransformResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="rss">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="channel">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="item">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="guid">
+																<xs:complexType>
+																	<xs:simpleContent>
+																		<xs:extension base="xs:string">
+																			<xs:attribute name="isPermaLink" use="required"
+																				type="xs:boolean" />
+																		</xs:extension>
+																	</xs:simpleContent>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="title" type="xs:string" />
+															<xs:element ref="sky:mediaId" />
+															<xs:element ref="media:rating" />
+															<xs:element maxOccurs="unbounded" ref="sky:advisory" />
+															<xs:element ref="sky:audioType" />
+															<xs:element ref="media:group" />
+															<xs:element ref="media:thumbnail" />
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+								<xs:attribute name="version" use="required" type="xs:decimal" />
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:schema>
+
+		<xs:schema targetNamespace="http://xml.theplatform.com/media/data/sky"
+			xmlns:sky="http://xml.theplatform.com/media/data/sky" xmlns:ns1="http://service.skytv.co.nz/puborch-transform/v1">
+			<xs:import namespace="http://service.skytv.co.nz/puborch-transform/v1" />
+			<xs:element name="mediaId" type="xs:string" />
+			<xs:element name="advisory" type="xs:string" />
+			<xs:element name="audioType" type="xs:string" />
+		</xs:schema>
+
+		<xs:schema targetNamespace="http://search.yahoo.com/mrss/"
+			xmlns:media="http://search.yahoo.com/mrss/">
+			<xs:import namespace="http://service.skytv.co.nz/puborch-transform/v1" />
+			<xs:import namespace="http://xml.theplatform.com/media/data/MediaFile" />
+			<xs:import namespace="http://xml.theplatform.com/ingest/data/IngestMediaFile" />
+			<xs:element name="rating" type="xs:string" />
+
+			<xs:element name="group" type="media:group" />
+			<xs:complexType name="group">
+				<xs:sequence>
+					<xs:element minOccurs="0" ref="media:content" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="content" type="media:content" />
+			<xs:complexType name="content">
+				<xs:sequence>
+					<xs:element ref="plfile:assetType" />
+					<xs:element ref="plingestmf:deleted" />
+				</xs:sequence>
+				<xs:attribute name="medium" use="required" type="xs:string" />
+				<xs:attribute name="url" use="required" type="xs:string" />
+			</xs:complexType>
+
+			<xs:element name="thumbnail" type="media:thumbnail" />
+			<xs:complexType name="thumbnail">
+				<xs:sequence>
+					<xs:element ref="plfile:assetType" />
+					<xs:element ref="plingestmf:deleted" />
+				</xs:sequence>
+				<xs:attribute name="medium" use="required" type="xs:string" />
+				<xs:attribute name="url" use="required" type="xs:string" />
+			</xs:complexType>
+		</xs:schema>
+
+		<xs:schema targetNamespace="http://xml.theplatform.com/media/data/MediaFile"
+			xmlns:plfile="http://xml.theplatform.com/media/data/MediaFile">
+			<xs:import namespace="http://service.skytv.co.nz/puborch-transform/v1" />
+			<xs:element name="assetType" type="xs:string" />
+		</xs:schema>
+
+		<xs:schema targetNamespace="http://xml.theplatform.com/ingest/data/IngestMediaFile"
+			xmlns:plingestmf="http://xml.theplatform.com/ingest/data/IngestMediaFile">
+			<xs:import namespace="http://service.skytv.co.nz/puborch-transform/v1" />
+			<xs:element name="deleted" type="xs:boolean" />
+		</xs:schema>
+
+		<xs:schema elementFormDefault="qualified"
+			targetNamespace="http://model.skytv.co.nz/vod/v1">
+			<xs:element name="Media" type="ns2:Media" />
+			<xs:complexType name="Media">
+				<xs:sequence>
+					<xs:element name="guid" type="xs:string" />
+					<xs:element name="titleId" type="xs:long" />
+					<xs:element name="titleName" type="xs:string" />
+					<xs:element name="certification" type="xs:string" />
+					<xs:element name="duration" type="xs:string" />
+					<xs:element name="audioType" type="xs:string" />
+					<xs:element name="aspectRatio" type="xs:string" />
+					<xs:element name="screenFormat" type="xs:string" />
+					<xs:element name="mediaId" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+
+		<xs:schema elementFormDefault="qualified"
+			targetNamespace="http://model.skytv.co.nz/puborch-productiondef/v1">
+			<xs:element name="assetType" type="ns3:assetType" />
+			<xs:complexType name="assetType">
+				<xs:sequence>
+					<xs:element name="assetTypeId" type="xs:long" />
+					<xs:element name="description" type="xs:string" />
+					<xs:element name="mediaType" type="xs:string" />
+					<xs:element name="details" type="xs:string" />
+					<xs:element name="url" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+	</wsdl:types>
+
+	<wsdl:message name="TransformRequest">
+		<wsdl:part element="ns1:TransformRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="TransformResponse">
+		<wsdl:part element="ns1:TransformResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:portType name="MediaNotificationMpxTransformPortType">
+		<wsdl:operation name="Transform">
+			<wsdl:input message="ns1:TransformRequest" />
+			<wsdl:output message="ns1:TransformResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="MediaNotificationMpxTransformSOAPBinding"
+		type="ns1:MediaNotificationMpxTransformPortType">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="Transform">
+			<soap:operation soapAction="urn:Transform" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="MediaNotificationMpxTransformService">
+		<wsdl:port binding="ns1:MediaNotificationMpxTransformSOAPBinding"
+			name="MediaNotificationMpxTransformSOAPPort">
+			<soap:address
+				location="http://esb.skytv.co.nz/service/MediaNotificationMpxTransformService" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

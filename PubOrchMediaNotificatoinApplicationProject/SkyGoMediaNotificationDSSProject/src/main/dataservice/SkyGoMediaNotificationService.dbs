@@ -1,0 +1,17 @@
+<data name="SkyGoMediaNotificationService" serviceNamespace="http://service.skytv.co.nz/skygo-medianotificationservice/v1">
+    <config id="skygo">
+        <property name="carbon_datasource_name">SKYGODataSource</property>
+    </config>
+    <query id="INSERT_MEDIAID" returnGeneratedKeys="true" useConfig="skygo" keyColumns="mediaID">
+        <sql>INSERT INTO MANIFEST_REQ (MEDIA_ID) VALUES (:mediaID)</sql>
+        <result element="NotifyResponse" rowName="">
+            <element column="mediaID" name="mediaID" xsdType="string"/>
+        </result>
+        <param name="mediaID" sqlType="STRING"/>
+    </query>
+    <operation name="NotifyRequest">
+        <call-query href="INSERT_MEDIAID">
+            <with-param name="mediaID" query-param="mediaID"/>
+        </call-query>
+    </operation>
+</data>

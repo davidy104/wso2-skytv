@@ -1,0 +1,187 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns2="http://model.skytv.co.nz/vod/v1" xmlns:ns1="http://ws.wso2.org/dataservice"
+	xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://service.skytv.co.nz/ibms/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+	targetNamespace="http://service.skytv.co.nz/ibms/v1">
+	<wsdl:documentation></wsdl:documentation>
+	<wsdl:types>
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://service.skytv.co.nz/ibms/v1">
+			<xs:import namespace="http://model.skytv.co.nz/vod/v1"></xs:import>
+			<xs:element name="GetMediaProvider">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="mediaID" nillable="true" type="xs:string"></xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetMediaProviderResponse" type="ns0:GetMediaProviderResponse"></xs:element>
+			<xs:complexType name="GetMediaProviderResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="mediaProvider" nillable="true" type="xs:string"></xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="GetVodMediaMetadata">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="mediaID" nillable="true" type="xs:string"></xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetVodMediaMetadataResponse" type="ns0:GetVodMediaMetadataResponse"></xs:element>
+			<xs:complexType name="GetVodMediaMetadataResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" ref="ns2:Media"></xs:element>
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.wso2.org/dataservice">
+			<xs:element name="DataServiceFault" type="xs:string"></xs:element>
+			<xs:element name="REQUEST_STATUS" type="xs:string"></xs:element>
+			<xs:element name="DATA_SERVICE_RESPONSE">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:any minOccurs="0"></xs:any>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:schema>
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://model.skytv.co.nz/vod/v1">
+			<xs:element name="Media" type="ns2:Media"></xs:element>
+			<xs:complexType name="Media">
+				<xs:sequence>
+					<xs:element name="titleId" nillable="true" type="xs:string"></xs:element>
+					<xs:element name="titleName" nillable="true" type="xs:string"></xs:element>
+					<xs:element name="certification" nillable="true" type="xs:string"></xs:element>
+					<xs:element name="duration" nillable="true" type="xs:string"></xs:element>
+					<xs:element name="audioType" nillable="true" type="xs:string"></xs:element>
+					<xs:element name="aspectRatio" nillable="true" type="xs:string"></xs:element>
+					<xs:element name="screenFormat" nillable="true" type="xs:string"></xs:element>
+					<xs:element name="mediaID" nillable="true" type="xs:string"></xs:element>
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="GetVodMediaMetadataRequest">
+		<wsdl:part name="parameters" element="ns0:GetVodMediaMetadata"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="GetVodMediaMetadataResponse">
+		<wsdl:part name="parameters" element="ns0:GetVodMediaMetadataResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="DataServiceFault">
+		<wsdl:part name="parameters" element="ns1:DataServiceFault"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="GetMediaProviderRequest">
+		<wsdl:part name="parameters" element="ns0:GetMediaProvider"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="GetMediaProviderResponse">
+		<wsdl:part name="parameters" element="ns0:GetMediaProviderResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="PubOrchMediaNotificationIBMSServicePortType">
+		<wsdl:operation name="GetVodMediaMetadata">
+			<wsdl:documentation></wsdl:documentation>
+			<wsdl:input message="ns0:GetVodMediaMetadataRequest" wsaw:Action="urn:GetVodMediaMetadata"></wsdl:input>
+			<wsdl:output message="ns0:GetVodMediaMetadataResponse" wsaw:Action="urn:GetVodMediaMetadataResponse"></wsdl:output>
+			<wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:GetVodMediaMetadataDataServiceFault"></wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="GetMediaProvider">
+			<wsdl:documentation></wsdl:documentation>
+			<wsdl:input message="ns0:GetMediaProviderRequest" wsaw:Action="urn:GetMediaProvider"></wsdl:input>
+			<wsdl:output message="ns0:GetMediaProviderResponse" wsaw:Action="urn:GetMediaProviderResponse"></wsdl:output>
+			<wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:GetMediaProviderDataServiceFault"></wsdl:fault>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="PubOrchMediaNotificationIBMSServiceSOAP11Binding" type="ns0:PubOrchMediaNotificationIBMSServicePortType">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
+		<wsdl:operation name="GetVodMediaMetadata">
+			<soap:operation soapAction="urn:GetVodMediaMetadata" style="document"></soap:operation>
+			<wsdl:input>
+				<soap:body use="literal"></soap:body>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"></soap:body>
+			</wsdl:output>
+			<wsdl:fault name="DataServiceFault">
+				<soap:fault use="literal" name="DataServiceFault"></soap:fault>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="GetMediaProvider">
+			<soap:operation soapAction="urn:GetMediaProvider" style="document"></soap:operation>
+			<wsdl:input>
+				<soap:body use="literal"></soap:body>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"></soap:body>
+			</wsdl:output>
+			<wsdl:fault name="DataServiceFault">
+				<soap:fault use="literal" name="DataServiceFault"></soap:fault>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="PubOrchMediaNotificationIBMSServiceSOAP12Binding" type="ns0:PubOrchMediaNotificationIBMSServicePortType">
+		<soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap12:binding>
+		<wsdl:operation name="GetVodMediaMetadata">
+			<soap12:operation soapAction="urn:GetVodMediaMetadata" style="document"></soap12:operation>
+			<wsdl:input>
+				<soap12:body use="literal"></soap12:body>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"></soap12:body>
+			</wsdl:output>
+			<wsdl:fault name="DataServiceFault">
+				<soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="GetMediaProvider">
+			<soap12:operation soapAction="urn:GetMediaProvider" style="document"></soap12:operation>
+			<wsdl:input>
+				<soap12:body use="literal"></soap12:body>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"></soap12:body>
+			</wsdl:output>
+			<wsdl:fault name="DataServiceFault">
+				<soap12:fault use="literal" name="DataServiceFault"></soap12:fault>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="PubOrchMediaNotificationIBMSServiceHttpBinding" type="ns0:PubOrchMediaNotificationIBMSServicePortType">
+		<http:binding verb="POST"></http:binding>
+		<wsdl:operation name="GetVodMediaMetadata">
+			<http:operation location="GetVodMediaMetadata"></http:operation>
+			<wsdl:input>
+				<mime:content type="text/xml" part="parameters"></mime:content>
+			</wsdl:input>
+			<wsdl:output>
+				<mime:content type="text/xml" part="parameters"></mime:content>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetMediaProvider">
+			<http:operation location="GetMediaProvider"></http:operation>
+			<wsdl:input>
+				<mime:content type="text/xml" part="parameters"></mime:content>
+			</wsdl:input>
+			<wsdl:output>
+				<mime:content type="text/xml" part="parameters"></mime:content>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="PubOrchMediaNotificationIBMSService">
+		<wsdl:port name="IBMSSOAP11Endpoint" binding="ns0:PubOrchMediaNotificationIBMSServiceSOAP11Binding">
+			<soap:address location="http://localhost:9769/services/PubOrchMediaNotificationIBMSService.SOAP11Endpoint/"></soap:address>
+		</wsdl:port>
+		<wsdl:port name="IBMSSecureSOAP11Endpoint" binding="ns0:PubOrchMediaNotificationIBMSServiceSOAP11Binding">
+			<soap:address location="https://localhost:9449/services/PubOrchMediaNotificationIBMSService.SecureSOAP11Endpoint/"></soap:address>
+		</wsdl:port>
+		<wsdl:port name="IBMSSecureSOAP12Endpoint" binding="ns0:PubOrchMediaNotificationIBMSServiceSOAP12Binding">
+			<soap12:address location="https://localhost:9449/services/PubOrchMediaNotificationIBMSService.SecureSOAP12Endpoint/"></soap12:address>
+		</wsdl:port>
+		<wsdl:port name="IBMSSOAP12Endpoint" binding="ns0:PubOrchMediaNotificationIBMSServiceSOAP12Binding">
+			<soap12:address location="http://localhost:9769/services/PubOrchMediaNotificationIBMSService.SOAP12Endpoint/"></soap12:address>
+		</wsdl:port>
+		<wsdl:port name="IBMSHTTPEndpoint" binding="ns0:PubOrchMediaNotificationIBMSServiceHttpBinding">
+			<http:address location="http://localhost:9769/services/PubOrchMediaNotificationIBMSService.HTTPEndpoint/"></http:address>
+		</wsdl:port>
+		<wsdl:port name="IBMSSecureHTTPEndpoint" binding="ns0:PubOrchMediaNotificationIBMSServiceHttpBinding">
+			<http:address location="https://localhost:9449/services/PubOrchMediaNotificationIBMSService.SecureHTTPEndpoint/"></http:address>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

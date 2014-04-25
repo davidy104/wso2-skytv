@@ -1,0 +1,77 @@
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:wsdl3="http://service.skytv.co.nz/monitor-utility/v1"
+	xmlns:wsdl2="https://service.skytv.co.nz/puborch-fileService/v1"
+	xmlns:wsdl1="http://service.skytv.co.nz/puborch-transform/v1"
+	xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:tns="http://process.skytv.co.nz/puborch-inHouseMetadata/v1"
+	xmlns:wsdl="http://service.skytv.co.nz/ibms/v1" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="PubOrchInHouseProcess"
+	targetNamespace="http://process.skytv.co.nz/puborch-inHouseMetadata/v1">
+	<types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema"
+			attributeFormDefault="unqualified" elementFormDefault="qualified"
+			targetNamespace="http://process.skytv.co.nz/puborch-inHouseMetadata/v1">
+			<element name="PubOrchInHouseProcessRequest">
+				<complexType>
+					<sequence>
+						<element name="mediaId" type="string" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="PubOrchInHouseProcessResponse">
+				<complexType>
+					<sequence>
+						<element name="result" type="string" />
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+	</types>
+	<message name="PubOrchInHouseProcessRequestMessage">
+		<part name="payload" element="tns:PubOrchInHouseProcessRequest"></part>
+	</message>
+	<message name="PubOrchInHouseProcessResponseMessage">
+		<part name="payload" element="tns:PubOrchInHouseProcessResponse"></part>
+	</message>
+	<portType name="PubOrchInHouseProcess">
+		<operation name="process">
+			<input message="tns:PubOrchInHouseProcessRequestMessage"></input>
+			<output message="tns:PubOrchInHouseProcessResponseMessage"></output>
+		</operation>
+	</portType>
+	<binding name="PubOrchInHouseProcessBinding" type="tns:PubOrchInHouseProcess">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<operation name="process">
+			<soap:operation
+				soapAction="http://process.skytv.co.nz/puborch-inHouseMetadata/v1/process" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+	</binding>
+	<service name="PubOrchInHouseProcess">
+		<port name="PubOrchInHouseProcessPort" binding="tns:PubOrchInHouseProcessBinding">
+			<soap:address location="http://localhost:9765/services/PubOrchInHouseProcess/" />
+		</port>
+	</service>
+	<plnk:partnerLinkType name="ibmsServicePLType">
+		<plnk:role name="ibmsServiceRole"
+			portType="wsdl:PubOrchInHouseContentIBMSServicePortType" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="mpxTransformServicePLType">
+		<plnk:role name="mpxTransformServiceRole"
+			portType="wsdl1:InHouseContentMpxTransformServicePortType" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="fileServicePLType">
+		<plnk:role name="fileServiceRole" portType="wsdl2:GenericFileServicePortType" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="monitorServicePLType">
+		<plnk:role name="monitorServiceRole" portType="wsdl3:MonitorUtilityServicePortType" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="PubOrchInHouseProcess">
+		<plnk:role name="PubOrchInHouseProcessProvider" portType="tns:PubOrchInHouseProcess" />
+	</plnk:partnerLinkType>
+</definitions>

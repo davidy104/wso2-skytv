@@ -1,0 +1,130 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns2="http://model.skytv.co.nz/media-notification/v1"
+	xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://service.skytv.co.nz/pig-medianotification/v1"
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://service.skytv.co.nz/pig-medianotification/v1">
+	<wsdl:types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema"
+			attributeFormDefault="unqualified" elementFormDefault="qualified"
+			targetNamespace="http://model.skytv.co.nz/media-notification/v1">
+			<complexType name="NotificationRequestType">
+				<sequence>
+					<element name="Notification" type="ns2:NotificationType" />
+				</sequence>
+			</complexType>
+			<complexType name="NotificationType">
+				<sequence>
+					<element name="time" type="string" />
+					<element name="state" type="string" />
+					<element name="mediaID" type="string" />
+					<element name="guid" type="string" />
+				</sequence>
+			</complexType>
+		</schema>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema"
+			attributeFormDefault="unqualified" elementFormDefault="qualified"
+			targetNamespace="http://service.skytv.co.nz/pig-medianotification/v1">
+			<import namespace="http://model.skytv.co.nz/media-notification/v1" />
+			<element name="NotifyRequest" type="ns2:NotificationRequestType" />
+			<element name="NotifyResponse">
+				<complexType>
+					<sequence>
+						<element name="result" type="string" />
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+	</wsdl:types>
+	<wsdl:message name="PubOrchMediaNotificationRequestMessage">
+		<wsdl:part name="payload" element="tns:NotifyRequest" />
+	</wsdl:message>
+	<wsdl:message name="PubOrchMediaNotificationResponseMessage">
+		<wsdl:part name="payload" element="tns:NotifyResponse" />
+	</wsdl:message>
+	<wsdl:portType name="PIGMediaNotificationServicePortType">
+		<wsdl:operation name="process">
+			<wsdl:input message="tns:PubOrchMediaNotificationRequestMessage"
+				wsaw:Action="http://service.skytv.co.nz/pig-medianotification/v1/process" />
+			<wsdl:output message="tns:PubOrchMediaNotificationResponseMessage"
+				wsaw:Action="//service.skytv.co.nz/pig-medianotification/v1/PubOrchMediaNotification/processResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="PIGMediaNotificationServiceSoap11Binding"
+		type="tns:PIGMediaNotificationServicePortType">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+			style="document" />
+		<wsdl:operation name="process">
+			<soap:operation
+				soapAction="http://service.skytv.co.nz/pig-medianotification/v1/process"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="PIGMediaNotificationServiceSoap12Binding"
+		type="tns:PIGMediaNotificationServicePortType">
+		<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"
+			style="document" />
+		<wsdl:operation name="process">
+			<soap12:operation
+				soapAction="http://service.skytv.co.nz/pig-medianotification/v1/process"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="PIGMediaNotificationServiceHttpBinding"
+		type="tns:PIGMediaNotificationServicePortType">
+		<http:binding verb="POST" />
+		<wsdl:operation name="process">
+			<http:operation location="process" />
+			<wsdl:input>
+				<mime:content type="text/xml" part="parameters" />
+			</wsdl:input>
+			<wsdl:output>
+				<mime:content type="text/xml" part="parameters" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="PIGMediaNotificationService">
+		<wsdl:port name="PIGMediaNotificationServiceHttpsSoap11Endpoint"
+			binding="tns:PIGMediaNotificationServiceSoap11Binding">
+			<soap:address
+				location="https://localhost:8244/services/PIGMediaNotificationService.PIGMediaNotificationServiceHttpsSoap11Endpoint" />
+		</wsdl:port>
+		<wsdl:port name="PIGMediaNotificationServiceHttpSoap11Endpoint"
+			binding="tns:PIGMediaNotificationServiceSoap11Binding">
+			<soap:address
+				location="http://localhost:8281/services/PIGMediaNotificationService.PIGMediaNotificationServiceHttpSoap11Endpoint" />
+		</wsdl:port>
+		<wsdl:port name="PIGMediaNotificationServiceHttpsSoap12Endpoint"
+			binding="tns:PIGMediaNotificationServiceSoap12Binding">
+			<soap12:address
+				location="https://localhost:8244/services/PIGMediaNotificationService.PIGMediaNotificationServiceHttpsSoap12Endpoint" />
+		</wsdl:port>
+		<wsdl:port name="PIGMediaNotificationServiceHttpSoap12Endpoint"
+			binding="tns:PIGMediaNotificationServiceSoap12Binding">
+			<soap12:address
+				location="http://localhost:8281/services/PIGMediaNotificationService.PIGMediaNotificationServiceHttpSoap12Endpoint" />
+		</wsdl:port>
+		<wsdl:port name="PIGMediaNotificationServiceHttpsEndpoint"
+			binding="tns:PIGMediaNotificationServiceHttpBinding">
+			<http:address
+				location="https://localhost:8244/services/PIGMediaNotificationService.PIGMediaNotificationServiceHttpsEndpoint" />
+		</wsdl:port>
+		<wsdl:port name="PIGMediaNotificationServiceHttpEndpoint"
+			binding="tns:PIGMediaNotificationServiceHttpBinding">
+			<http:address
+				location="http://localhost:8281/services/PIGMediaNotificationService.PIGMediaNotificationServiceHttpEndpoint" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
