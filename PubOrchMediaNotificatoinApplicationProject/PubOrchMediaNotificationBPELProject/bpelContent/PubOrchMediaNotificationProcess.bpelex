@@ -9,14 +9,6 @@
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
   </extensions>
   <extensions>
-    <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@variables/@children.2"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@variables/@children.3"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
-  </extensions>
-  <extensions>
     <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@variables/@children.4"/>
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:VariableExtension"/>
   </extensions>
@@ -98,11 +90,11 @@
   </extensions>
   <extensions>
     <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension" width="1269" height="731"/>
   </extensions>
   <extensions>
     <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.0"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension" x="8" y="8"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension" x="322" y="9"/>
   </extensions>
   <extensions>
     <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.0/@activities.0"/>
@@ -137,40 +129,8 @@
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
   </extensions>
   <extensions>
-    <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.1"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension" x="346" y="8"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.1/@activities.0"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.1/@activities.0/@copy.0"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.1/@activities.1"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.1/@activities.2"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.1/@activities.2/@copy.0"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.1/@activities.2/@copy.1"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.1/@activities.3"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
-  </extensions>
-  <extensions>
     <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.2"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension" x="661" y="8"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension" x="659" y="14"/>
   </extensions>
   <extensions>
     <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.2/@activities.0"/>
@@ -201,11 +161,11 @@
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
   </extensions>
   <extensions>
-    <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.2/@activities.2/@else/@activity/@activities.0/@copy.0"/>
+    <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.2/@activities.2/@else/@activity/@activities.0/@copy.1"/>
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
   </extensions>
   <extensions>
-    <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.2/@activities.2/@else/@activity/@activities.0/@copy.1"/>
+    <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.2/@activities.2/@else/@activity/@activities.0/@copy.2"/>
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
   </extensions>
   <extensions>
@@ -238,10 +198,6 @@
   </extensions>
   <extensions>
     <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.2/@activities.2/@else/@activity/@activities.4/@copy.0"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
-  </extensions>
-  <extensions>
-    <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.2/@activities.2/@else/@activity/@activities.4/@copy.1"/>
     <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
   </extensions>
   <extensions>
@@ -318,6 +274,42 @@
   </extensions>
   <extensions>
     <extendedObject href="PubOrchMediaNotificationProcess.bpel#/"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1398451599000"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1398486556000"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.2/@activities.2/@else/@activity/@activities.0/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.1/@activities.0/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.1/@activities.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.1/@activities.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.1/@activities.2/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.1/@activities.2/@copy.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.1/@activities.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.1/@activities.3"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="PubOrchMediaNotificationProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@activities.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
   </extensions>
 </extensionmodel:ExtensionMap>

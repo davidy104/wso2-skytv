@@ -182,7 +182,7 @@
 							</bpel:copy>
 							<bpel:copy>
 								<bpel:from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
-                                    <![CDATA[bpel:doXslTransform("skyGoSuccessToMonitorXSLT.xslt", $skyGoServicePLResponse.parameters)]]>
+                                    <![CDATA[bpel:doXslTransform("skyGoSuccessToMonitorXSLT.xslt", $input.payload)]]>
 								</bpel:from>
 								<bpel:to part="parameters" variable="monitorServicePLRequest"></bpel:to>
 							</bpel:copy>
@@ -192,8 +192,8 @@
 							partnerLink="monitorServicePL" operation="Monitor"
 							portType="ns0:MonitorUtilityServicePortType" inputVariable="monitorServicePLRequest"></bpel:invoke>
 					</bpel:sequence>
-					<bpel:sequence name="PigSequence">
 
+					<bpel:sequence name="PigSequence">
 						<bpel:assign validate="no" name="AssignPig">
 							<bpel:copy>
 								<bpel:from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
@@ -201,6 +201,7 @@
 								</bpel:from>
 								<bpel:to part="payload" variable="pigMediaNotificationPLRequest"></bpel:to>
 							</bpel:copy>
+
 						</bpel:assign>
 						<bpel:invoke name="InvokePigMediaNotification"
 							partnerLink="pigMediaNotificationPL" operation="process"
@@ -228,7 +229,7 @@
 							</bpel:copy>
 							<bpel:copy>
 								<bpel:from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
-                                    <![CDATA[bpel:doXslTransform("pigSuccessToMonitorXSLT.xslt", $pigMediaNotificationPLResponse.payload)]]>
+                                    <![CDATA[bpel:doXslTransform("pigSuccessToMonitorXSLT.xslt", $input.payload)]]>
 								</bpel:from>
 								<bpel:to part="parameters" variable="monitorServicePLRequest"></bpel:to>
 							</bpel:copy>
@@ -237,6 +238,7 @@
 							partnerLink="monitorServicePL" operation="Monitor"
 							portType="ns0:MonitorUtilityServicePortType" inputVariable="monitorServicePLRequest"></bpel:invoke>
 					</bpel:sequence>
+
 					<bpel:sequence name="NormalSequence">
 
 						<bpel:assign validate="no" name="AssignGetMediaProvider">
@@ -266,9 +268,7 @@
 							portType="ns3:PubOrchMediaNotificationIBMSServicePortType"
 							inputVariable="ibmsServicePLRequest" outputVariable="ibmsServicePLResponse"></bpel:invoke>
 						<bpel:if name="IfMediaProviderSky">
-							<bpel:condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
-                                <![CDATA[$ibmsServicePLResponse.parameters/ns3:mediaProvider = '4788' or $ibmsServicePLResponse.parameters/ns3:mediaProvider = '55']]>
-							</bpel:condition>
+							<bpel:condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[$ibmsServicePLResponse.parameters/ns3:mediaProvider = '4788' or $ibmsServicePLResponse.parameters/ns3:mediaProvider = '55']]></bpel:condition>
 							<bpel:sequence>
 								<bpel:assign validate="no" name="AssignInHouseMediaID">
 									<bpel:copy>
@@ -298,13 +298,21 @@
 									portType="ns7:PubOrchInHouseProcess" inputVariable="InHouseContentProcessPLRequest"
 									outputVariable="InHouseContentProcessPLResponse"></bpel:invoke>
 
-
-
-
 							</bpel:sequence>
 							<bpel:else>
 								<bpel:sequence name="Sequence">
 									<bpel:assign validate="no" name="AssignGetMediaMetadata">
+										<bpel:copy>
+											<bpel:from>
+												<bpel:literal>
+													<ns0:GetVodMediaMetadata
+														xmlns:ns0="http://service.skytv.co.nz/ibms/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+														<ns0:mediaID>ns0:mediaID</ns0:mediaID>
+													</ns0:GetVodMediaMetadata>
+												</bpel:literal>
+											</bpel:from>
+											<bpel:to variable="ibmsServicePLRequest1" part="parameters"></bpel:to>
+										</bpel:copy>
 										<bpel:copy>
 											<bpel:from>
 												<bpel:literal>
@@ -320,8 +328,10 @@
 											<bpel:from part="payload" variable="input">
 												<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[ns2:Notification/ns2:mediaID]]></bpel:query>
 											</bpel:from>
-											<bpel:to part="parameters" variable="ibmsServicePLRequest">
-												<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"><![CDATA[ns3:mediaID]]></bpel:query>
+											<bpel:to part="parameters" variable="ibmsServicePLRequest1">
+												<bpel:query queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
+                                                    <![CDATA[ns3:mediaID]]>
+												</bpel:query>
 											</bpel:to>
 										</bpel:copy>
 									</bpel:assign>
@@ -369,31 +379,12 @@
 										portType="ns6:ProductDefinitionServicePortType" inputVariable="productDefinitionServicePLRequest"
 										outputVariable="productDefinitionServicePLResponse"></bpel:invoke>
 									<bpel:assign validate="no" name="AssignTransform">
-										<bpel:copy>
-											<bpel:from>
-												<bpel:literal>
-													<ns0:GetVodMediaMetadataResponse
-														xmlns:ns0="http://service.skytv.co.nz/ibms/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-														<Media>
-															<titleId>titleId</titleId>
-															<titleName>titleName</titleName>
-															<certification>certification</certification>
-															<duration>duration</duration>
-															<audioType>audioType</audioType>
-															<aspectRatio>aspectRatio</aspectRatio>
-															<screenFormat>screenFormat</screenFormat>
-															<mediaID>mediaID</mediaID>
-														</Media>
-													</ns0:GetVodMediaMetadataResponse>
-												</bpel:literal>
-											</bpel:from>
-											<bpel:to variable="vodMediaMetadata" part="parameters"></bpel:to>
-										</bpel:copy>
+
 										<bpel:copy>
 											<bpel:from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">
                                                 <![CDATA[bpel:doXslTransform("toMpxTransform.xsl", $productDefinitionServicePLResponse.parameters,'vodMediaMetadata', $vodMediaMetadata.parameters)]]>
 											</bpel:from>
-											<bpel:to part="parameters" variable="vodMediaMetadata"></bpel:to>
+											<bpel:to part="parameters" variable="mpxTransformServicePLRequest"></bpel:to>
 										</bpel:copy>
 									</bpel:assign>
 									<bpel:invoke name="InvokeTransformToMpxMediaManifest"
@@ -463,6 +454,7 @@
 
 
 					</bpel:sequence>
+
 				</bpel:flow>
 
 			</bpel:sequence>

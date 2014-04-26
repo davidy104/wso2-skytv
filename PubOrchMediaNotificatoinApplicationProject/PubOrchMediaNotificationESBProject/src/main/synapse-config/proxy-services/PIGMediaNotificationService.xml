@@ -5,7 +5,9 @@
             <sequence key="PIGMediaNotificationService_InSequence"/>
             <payloadFactory media-type="xml">
                 <format>
-                    <ns1:NotifyResponse xmlns:ns1="http://service.skytv.co.nz/skygo-medianotificationservice/v1"/>
+                    <ns1:NotifyResponse xmlns:ns1="http://service.skytv.co.nz/pig-medianotification/v1">
+                        <result>success</result>
+                    </ns1:NotifyResponse>
                 </format>
                 <args/>
             </payloadFactory>

@@ -16,7 +16,7 @@
 				SKY
 			</xsl:element>
 			<xsl:element name="toType">
-				MPXMEDIA
+				MPXINHOUSE
 			</xsl:element>
 
 			<xsl:element name="source">

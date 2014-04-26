@@ -1,10 +1,15 @@
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://ws.wso2.org/dataservice" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
-	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://service.skytv.co.nz/skygo-medianotificationservice/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:ns1="http://ws.wso2.org/dataservice" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	xmlns:ns0="http://service.skytv.co.nz/skygo-medianotificationservice/v1"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
 	targetNamespace="http://service.skytv.co.nz/skygo-medianotificationservice/v1">
 	<wsdl:documentation />
 	<wsdl:types>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://service.skytv.co.nz/skygo-medianotificationservice/v1">
+		<xs:schema attributeFormDefault="unqualified"
+			elementFormDefault="qualified"
+			targetNamespace="http://service.skytv.co.nz/skygo-medianotificationservice/v1">
 			<xs:element name="NotifyRequest">
 				<xs:complexType>
 					<xs:sequence>
@@ -15,11 +20,13 @@
 			<xs:element name="NotifyResponse" type="ns0:NotifyResponse" />
 			<xs:complexType name="NotifyResponse">
 				<xs:sequence>
-					<xs:element minOccurs="0" name="mediaID" nillable="true" type="xs:string" />
+					<xs:element minOccurs="0" name="mediaID" nillable="true"
+						type="xs:string" />
 				</xs:sequence>
 			</xs:complexType>
 		</xs:schema>
-		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.wso2.org/dataservice">
+		<xs:schema attributeFormDefault="unqualified"
+			elementFormDefault="qualified" targetNamespace="http://ws.wso2.org/dataservice">
 			<xs:element name="DataServiceFault" type="xs:string" />
 			<xs:element name="REQUEST_STATUS" type="xs:string" />
 			<xs:element name="DATA_SERVICE_RESPONSE">
@@ -43,13 +50,18 @@
 	<wsdl:portType name="SkyGoMediaNotificationServicePortType">
 		<wsdl:operation name="NotifyRequest">
 			<wsdl:documentation />
-			<wsdl:input message="ns0:NotifyRequestRequest" wsaw:Action="urn:NotifyRequest" />
-			<wsdl:output message="ns0:NotifyRequestResponse" wsaw:Action="urn:NotifyRequestResponse" />
-			<wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault" wsaw:Action="urn:NotifyRequestDataServiceFault" />
+			<wsdl:input message="ns0:NotifyRequestRequest"
+				wsaw:Action="urn:NotifyRequest" />
+			<wsdl:output message="ns0:NotifyRequestResponse"
+				wsaw:Action="urn:NotifyRequestResponse" />
+			<wsdl:fault message="ns0:DataServiceFault" name="DataServiceFault"
+				wsaw:Action="urn:NotifyRequestDataServiceFault" />
 		</wsdl:operation>
 	</wsdl:portType>
-	<wsdl:binding name="SkyGoMediaNotificationServiceSOAP11Binding" type="ns0:SkyGoMediaNotificationServicePortType">
-		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+	<wsdl:binding name="SkyGoMediaNotificationServiceSOAP11Binding"
+		type="ns0:SkyGoMediaNotificationServicePortType">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+			style="document" />
 		<wsdl:operation name="NotifyRequest">
 			<soap:operation soapAction="urn:NotifyRequest" style="document" />
 			<wsdl:input>
@@ -63,10 +75,13 @@
 			</wsdl:fault>
 		</wsdl:operation>
 	</wsdl:binding>
-	<wsdl:binding name="SkyGoMediaNotificationServiceSOAP12Binding" type="ns0:SkyGoMediaNotificationServicePortType">
-		<soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+	<wsdl:binding name="SkyGoMediaNotificationServiceSOAP12Binding"
+		type="ns0:SkyGoMediaNotificationServicePortType">
+		<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"
+			style="document" />
 		<wsdl:operation name="NotifyRequest">
-			<soap12:operation soapAction="urn:NotifyRequest" style="document" />
+			<soap12:operation soapAction="urn:NotifyRequest"
+				style="document" />
 			<wsdl:input>
 				<soap12:body use="literal" />
 			</wsdl:input>
@@ -78,7 +93,8 @@
 			</wsdl:fault>
 		</wsdl:operation>
 	</wsdl:binding>
-	<wsdl:binding name="SkyGoMediaNotificationServiceHttpBinding" type="ns0:SkyGoMediaNotificationServicePortType">
+	<wsdl:binding name="SkyGoMediaNotificationServiceHttpBinding"
+		type="ns0:SkyGoMediaNotificationServicePortType">
 		<http:binding verb="POST" />
 		<wsdl:operation name="NotifyRequest">
 			<http:operation location="NotifyRequest" />
@@ -91,23 +107,35 @@
 		</wsdl:operation>
 	</wsdl:binding>
 	<wsdl:service name="SkyGoMediaNotificationService">
-		<wsdl:port name="SkyGoSOAP11Endpoint" binding="ns0:SkyGoMediaNotificationServiceSOAP11Binding">
-			<soap:address location="http://localhost:9769/services/SkyGoMediaNotificationService.SOAP11Endpoint/" />
+		<wsdl:port name="SkyGoSOAP11Endpoint"
+			binding="ns0:SkyGoMediaNotificationServiceSOAP11Binding">
+			<soap:address
+				location="http://localhost:9769/services/SkyGoMediaNotificationService.SOAP11Endpoint/" />
 		</wsdl:port>
-		<wsdl:port name="SkyGoSecureSOAP11Endpoint" binding="ns0:SkyGoMediaNotificationServiceSOAP11Binding">
-			<soap:address location="https://localhost:9449/services/SkyGoMediaNotificationService.SecureSOAP11Endpoint/" />
+		<wsdl:port name="SkyGoSecureSOAP11Endpoint"
+			binding="ns0:SkyGoMediaNotificationServiceSOAP11Binding">
+			<soap:address
+				location="https://localhost:9449/services/SkyGoMediaNotificationService.SecureSOAP11Endpoint/" />
 		</wsdl:port>
-		<wsdl:port name="SkyGoSecureSOAP12Endpoint" binding="ns0:SkyGoMediaNotificationServiceSOAP12Binding">
-			<soap12:address location="https://localhost:9449/services/SkyGoMediaNotificationService.SecureSOAP12Endpoint/" />
+		<wsdl:port name="SkyGoSecureSOAP12Endpoint"
+			binding="ns0:SkyGoMediaNotificationServiceSOAP12Binding">
+			<soap12:address
+				location="https://localhost:9449/services/SkyGoMediaNotificationService.SecureSOAP12Endpoint/" />
 		</wsdl:port>
-		<wsdl:port name="SkyGoSOAP12Endpoint" binding="ns0:SkyGoMediaNotificationServiceSOAP12Binding">
-			<soap12:address location="http://localhost:9769/services/SkyGoMediaNotificationService.SOAP12Endpoint/" />
+		<wsdl:port name="SkyGoSOAP12Endpoint"
+			binding="ns0:SkyGoMediaNotificationServiceSOAP12Binding">
+			<soap12:address
+				location="http://localhost:9769/services/SkyGoMediaNotificationService.SOAP12Endpoint/" />
 		</wsdl:port>
-		<wsdl:port name="SkyGoHTTPEndpoint" binding="ns0:SkyGoMediaNotificationServiceHttpBinding">
-			<http:address location="http://localhost:9769/services/SkyGoMediaNotificationService.HTTPEndpoint/" />
+		<wsdl:port name="SkyGoHTTPEndpoint"
+			binding="ns0:SkyGoMediaNotificationServiceHttpBinding">
+			<http:address
+				location="http://localhost:9769/services/SkyGoMediaNotificationService.HTTPEndpoint/" />
 		</wsdl:port>
-		<wsdl:port name="SkyGoSecureHTTPEndpoint" binding="ns0:SkyGoMediaNotificationServiceHttpBinding">
-			<http:address location="https://localhost:9449/services/SkyGoMediaNotificationService.SecureHTTPEndpoint/" />
+		<wsdl:port name="SkyGoSecureHTTPEndpoint"
+			binding="ns0:SkyGoMediaNotificationServiceHttpBinding">
+			<http:address
+				location="https://localhost:9449/services/SkyGoMediaNotificationService.SecureHTTPEndpoint/" />
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

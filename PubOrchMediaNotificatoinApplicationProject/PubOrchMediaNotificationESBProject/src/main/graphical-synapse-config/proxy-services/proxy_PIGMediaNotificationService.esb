@@ -20,7 +20,7 @@
               <dynamicReferenceKey prettyName="Sequence Expression" propertyName="expression" propertyValue="/default/expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
               <staticReferenceKey prettyName="Sequence Key" keyName="Sequence Key" keyValue="PIGMediaNotificationService_InSequence" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
             </children>
-            <children xsi:type="esb:PayloadFactoryMediator" format="&lt;ns1:NotifyResponse xmlns:ns1=&quot;http://service.skytv.co.nz/skygo-medianotificationservice/v1&quot;/>">
+            <children xsi:type="esb:PayloadFactoryMediator" format="&lt;ns1:NotifyResponse xmlns:ns1=&quot;http://service.skytv.co.nz/pig-medianotification/v1&quot;>&lt;result xmlns=&quot;http://ws.apache.org/ns/synapse&quot;>success&lt;/result>&lt;/ns1:NotifyResponse>">
               <formatKey prettyName="Sequence Key" keyName="Sequence Key" keyValue="/default/key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
               <inputConnector incomingLinks="//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@outputConnector.0/@outgoingLink"/>
               <outputConnector>
