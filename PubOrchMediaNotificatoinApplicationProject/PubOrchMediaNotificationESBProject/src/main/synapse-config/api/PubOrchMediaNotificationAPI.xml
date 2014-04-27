@@ -12,7 +12,7 @@
             <property name="FORCE_SC_ACCEPTED" value="true" scope="axis2" type="STRING"/>
             <header name="Action" scope="default" value="process"/>
             <send>
-                <endpoint key="gov:/endpoints/PubOrchMediaNotificationProcess_Endpoint.xml"/>
+                <endpoint key="gov:endpoints/PubOrchMediaNotificationProcess_Endpoint.xml"/>
             </send>
         </inSequence>
         <outSequence/>

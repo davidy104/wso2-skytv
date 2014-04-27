@@ -8,14 +8,14 @@
     </log>
     <payloadFactory media-type="xml">
         <format>
-            <HandleNotificationRequest xmlns="http://process.skytv.co.nz/puborc-medianotification/v1">
-                <Notification xmlns:ns2="http://model.skytv.co.nz/media-notification/v1">
-                    <ns2:time>$1</ns2:time>
-                    <ns2:state>$2</ns2:state>
-                    <ns2:mediaID>$3</ns2:mediaID>
-                    <ns2:guid>$4</ns2:guid>
-                </Notification>
-            </HandleNotificationRequest>
+            <ns1:HandleNotificationRequest xmlns:ns1="http://process.skytv.co.nz/puborch-medianotification/v1">
+                <ns2:Notification xmlns:ns2="http://model.skytv.co.nz/media-notification/v1">
+                    <time xmlns="http://model.skytv.co.nz/media-notification/v1">$1</time>
+                    <state xmlns="http://model.skytv.co.nz/media-notification/v1">$2</state>
+                    <mediaID xmlns="http://model.skytv.co.nz/media-notification/v1">$3</mediaID>
+                    <guid xmlns="http://model.skytv.co.nz/media-notification/v1">$4</guid>
+                </ns2:Notification>
+            </ns1:HandleNotificationRequest>
         </format>
         <args>
             <arg xmlns:ns="http://org.apache.synapse/xsd" evaluator="xml" expression="$url:time"/>
