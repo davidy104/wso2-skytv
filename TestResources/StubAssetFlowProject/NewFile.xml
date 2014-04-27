@@ -1,0 +1,223 @@
+<rss xmlns:ns1="http://service.skytv.co.nz/puborch-transform/v1"
+	xmlns:sky="http://xml.theplatform.com/media/data/sky" version="2.0">
+	<channel>
+		<item>
+			<title>Seven Years In Tibet</title>
+			<description>Drama: Austrian mountaineer, Heinrich Harrer, escapes
+				from his World War II POW camp &amp; ends up in Tibet, where he
+				befriends the young Dalai Lama. Brad Pitt.</description>
+			<sky:skyID>5899</sky:skyID>
+			<sky:seasonID></sky:seasonID>
+			<sky:seasonTitle></sky:seasonTitle>
+			<sky:seasonNumber></sky:seasonNumber>
+			<sky:episodeNumber>0</sky:episodeNumber>
+			<credit personId="5557" creditID="7819">
+				<last>Pitt</last>
+				<first>Brad</first>
+				<role>Star</role>
+			</credit>
+			<credit personId="8239" creditID="7819">
+				<last>Thewlis</last>
+				<first>David</first>
+				<role>Star</role>
+			</credit>
+			<credit personId="16945" creditID="7818">
+				<last>Annaud</last>
+				<first>Jean-Jacques</first>
+				<role>Director</role>
+			</credit>
+			<sky:studio>Columbia Tristar Intl TV</sky:studio>
+			<sky:contentProviderID>4</sky:contentProviderID>
+			<sky:programType>Movie</sky:programType>
+			<sky:releaseYear>1997</sky:releaseYear>
+			<sky:state>0</sky:state>
+		</item>
+		<item>
+			<title>Silverado</title>
+			<description>Western: Classic style adventure about four friends, who
+				team up to fight injustice in a small town. Starring: Kevin Kline,
+				Kevin Costner, Danny Glover, Scott Glenn.</description>
+			<sky:skyID>6770</sky:skyID>
+			<sky:seasonID></sky:seasonID>
+			<sky:seasonTitle></sky:seasonTitle>
+			<sky:seasonNumber></sky:seasonNumber>
+			<sky:episodeNumber>0</sky:episodeNumber>
+			<credit personId="1086" creditID="7818">
+				<last>Kasdan</last>
+				<first>Lawrence</first>
+				<role>Director</role>
+			</credit>
+			<credit personId="1241" creditID="7819">
+				<last>Dennehy</last>
+				<first>Brian</first>
+				<role>Star</role>
+			</credit>
+			<credit personId="1425" creditID="7819">
+				<last>Costner</last>
+				<first>Kevin</first>
+				<role>Star</role>
+			</credit>
+			<credit personId="1573" creditID="7819">
+				<last>Glover</last>
+				<first>Danny</first>
+				<role>Star</role>
+			</credit>
+			<credit personId="1864" creditID="7819">
+				<last>Cleese</last>
+				<first>John</first>
+				<role>Star</role>
+			</credit>
+			<credit personId="2344" creditID="7819">
+				<last>Glenn</last>
+				<first>Scott</first>
+				<role>Star</role>
+			</credit>
+			<credit personId="3536" creditID="7819">
+				<last>Kline</last>
+				<first>Kevin</first>
+				<role>Star</role>
+			</credit>
+			<sky:studio>Columbia Tristar Intl TV</sky:studio>
+			<sky:contentProviderID>4</sky:contentProviderID>
+			<sky:programType>Movie</sky:programType>
+			<sky:releaseYear>1985</sky:releaseYear>
+			<sky:state>0</sky:state>
+		</item>
+		<item>
+			<title>Brassed Off!</title>
+			<description>Comedy: A small Yorkshire coal mining community relies
+				on a brass band to lift its spirits when the town's pit is
+				threatened with closure. Starring Pete Postlethwaite, Ewan McGregor.</description>
+			<sky:skyID>5864</sky:skyID>
+			<sky:seasonID></sky:seasonID>
+			<sky:seasonTitle></sky:seasonTitle>
+			<sky:seasonNumber></sky:seasonNumber>
+			<sky:episodeNumber>0</sky:episodeNumber>
+			<credit personId="7238" creditID="7819">
+				<last>Postlethwaite</last>
+				<first>Pete</first>
+				<role>Star</role>
+			</credit>
+			<credit personId="8773" creditID="7819">
+				<last>Fitzgerald</last>
+				<first>Tara</first>
+				<role>Star</role>
+			</credit>
+			<credit personId="16069" creditID="7818">
+				<last>Herman</last>
+				<first>Mark</first>
+				<role>Director</role>
+			</credit>
+			<credit personId="16786" creditID="7819">
+				<last>Mcgregor</last>
+				<first>Ewan</first>
+				<role>Star</role>
+			</credit>
+			<sky:studio>Icon Film Distribution</sky:studio>
+			<sky:contentProviderID>8133</sky:contentProviderID>
+			<sky:programType>Movie</sky:programType>
+			<sky:releaseYear>1996</sky:releaseYear>
+			<sky:state>0</sky:state>
+		</item>
+		<item>
+			<title>Desperate Measures</title>
+			<description>Thriller: A respected cop is forced to sacrifice his
+				professional integrity to help his dying son, because the only donor
+				is a convicted murderer. Starring: Michael Keaton, Andy Garcia,
+				Brian Cox.</description>
+			<sky:skyID>5885</sky:skyID>
+			<sky:seasonID></sky:seasonID>
+			<sky:seasonTitle></sky:seasonTitle>
+			<sky:seasonNumber></sky:seasonNumber>
+			<sky:episodeNumber>0</sky:episodeNumber>
+			<credit personId="1234" creditID="7819">
+				<last>Keaton</last>
+				<first>Michael</first>
+				<role>Star</role>
+			</credit>
+			<credit personId="3623" creditID="7819">
+				<last>Garcia</last>
+				<first>Andy</first>
+				<role>Star</role>
+			</credit>
+			<credit personId="4067" creditID="7818">
+				<last>Schroeder</last>
+				<first>Barbet</first>
+				<role>Director</role>
+			</credit>
+			<sky:studio>Columbia Tristar Intl TV</sky:studio>
+			<sky:contentProviderID>4</sky:contentProviderID>
+			<sky:programType>Movie</sky:programType>
+			<sky:releaseYear>1998</sky:releaseYear>
+			<sky:state>0</sky:state>
+		</item>
+		<item>
+			<title>How To Be A Player</title>
+			<description>Comedy: A serial philanderer gets a fright when his
+				sister invites all his unknowing girlfriends to a party. Bill
+				Bellamy, Natalie Desselle.</description>
+			<sky:skyID>6127</sky:skyID>
+			<sky:seasonID></sky:seasonID>
+			<sky:seasonTitle></sky:seasonTitle>
+			<sky:seasonNumber></sky:seasonNumber>
+			<sky:episodeNumber>0</sky:episodeNumber>
+			<credit personId="14183" creditID="7819">
+				<last>Desselle</last>
+				<first>Natalie</first>
+				<role>Star</role>
+			</credit>
+			<credit personId="14188" creditID="7819">
+				<last>Bellamy</last>
+				<first>Bill</first>
+				<role>Star</role>
+			</credit>
+			<credit personId="16424" creditID="7819">
+				<last>Voorlies</last>
+				<first>Lark</first>
+				<role>Star</role>
+			</credit>
+			<credit personId="16425" creditID="7818">
+				<last>Martin</last>
+				<first>Lionel.C.</first>
+				<role>Director</role>
+			</credit>
+			<sky:studio>Universal Studios Intl BV TV</sky:studio>
+			<sky:contentProviderID>3</sky:contentProviderID>
+			<sky:programType>Movie</sky:programType>
+			<sky:releaseYear>1997</sky:releaseYear>
+			<sky:state>0</sky:state>
+		</item>
+		<item>
+			<title>Roosters U20 V Knights U20 Replay</title>
+			<description>Join SKY Sport for a full replay of this Toyota Cup
+				match between the Roosters U20 and the Knights U20 from Sydney
+				Football Stadium.</description>
+			<sky:skyID>10155006</sky:skyID>
+			<sky:seasonID>115237</sky:seasonID>
+			<sky:seasonTitle>Toyota Cup2009</sky:seasonTitle>
+			<sky:seasonNumber>2009</sky:seasonNumber>
+			<sky:episodeNumber>19</sky:episodeNumber>
+			<sky:studio>Sky Network Television Limited</sky:studio>
+			<sky:contentProviderID>55</sky:contentProviderID>
+			<sky:programType>Series</sky:programType>
+			<sky:releaseYear>0</sky:releaseYear>
+			<sky:state>0</sky:state>
+		</item>
+		<item>
+			<title>Otago V Hawkes Bay Replay</title>
+			<description>Join SKY Sport to catch this full replay of Otago
+				battling it out with Hawkes Bay at Carisbrook in Dunedin for the
+				2008 Air New Zealand Cup competition.</description>
+			<sky:skyID>10109545</sky:skyID>
+			<sky:seasonID>112076</sky:seasonID>
+			<sky:seasonTitle>2008 Air New Zealand Cup08</sky:seasonTitle>
+			<sky:seasonNumber>08</sky:seasonNumber>
+			<sky:episodeNumber>31</sky:episodeNumber>
+			<sky:studio>Sky Inhouse Sports Productions</sky:studio>
+			<sky:contentProviderID>4788</sky:contentProviderID>
+			<sky:programType>Series</sky:programType>
+			<sky:releaseYear>0</sky:releaseYear>
+			<sky:state>0</sky:state>
+		</item>
+	</channel>
+</rss>

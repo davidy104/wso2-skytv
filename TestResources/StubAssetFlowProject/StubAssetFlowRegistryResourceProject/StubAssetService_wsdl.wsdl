@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://service.skytv.co.nz/puborch-extracttitles/v1"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" name="StubAssetService"
+	targetNamespace="http://service.skytv.co.nz/puborch-extracttitles/v1">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://service.skytv.co.nz/puborch-extracttitles/v1">
+			<xsd:element name="ExtractTitles">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="titleId" type="xsd:double" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ExtractTitlesResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="result" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="ExtractTitlesMessage">
+		<wsdl:part element="tns:ExtractTitles" name="parameters" />
+	</wsdl:message>
+
+	<wsdl:message name="ExtractTitlesResponseMessage">
+		<wsdl:part element="tns:ExtractTitlesResponse" name="parameters" />
+	</wsdl:message>
+
+
+	<wsdl:portType name="StubAssetServicePortType">
+		<wsdl:operation name="Process">
+			<wsdl:input message="tns:ExtractTitlesMessage"
+				wsaw:Action="urn:Process" />
+			<wsdl:output message="tns:ExtractTitlesResponseMessage"
+				wsaw:Action="urn:Process" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="StubAssetServiceSoap11Binding" type="tns:StubAssetServicePortType">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="Process">
+			<soap:operation soapAction="urn:Process" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="StubAssetService">
+		<wsdl:port binding="tns:StubAssetServiceSoap11Binding" name="StubAssetServiceHttpSoap11Endpoint">
+			<soap:address location="http://service.esb.skytv.com" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

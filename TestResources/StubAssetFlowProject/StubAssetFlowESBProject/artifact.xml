@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="FileService_Sequence" groupId="co.nz.skytv.StubAssetFlowESBProject.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/FileService_Sequence.xml</file>
+    </artifact>
+    <artifact name="Ibms_GetTitle_Sequence" groupId="co.nz.skytv.StubAssetFlowESBProject.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/Ibms_GetTitle_Sequence.xml</file>
+    </artifact>
+    <artifact name="Ibms_GetTitles_Sequence" groupId="co.nz.skytv.StubAssetFlowESBProject.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/Ibms_GetTitles_Sequence.xml</file>
+    </artifact>
+    <artifact name="MonitorService_Sequence" groupId="co.nz.skytv.StubAssetFlowESBProject.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/MonitorService_Sequence.xml</file>
+    </artifact>
+    <artifact name="MpxTransform_Sequence" groupId="co.nz.skytv.StubAssetFlowESBProject.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/MpxTransform_Sequence.xml</file>
+    </artifact>
+    <artifact name="StubAssetService" groupId="co.nz.skytv.StubAssetFlowESBProject.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/StubAssetService.xml</file>
+    </artifact>
+</artifacts>

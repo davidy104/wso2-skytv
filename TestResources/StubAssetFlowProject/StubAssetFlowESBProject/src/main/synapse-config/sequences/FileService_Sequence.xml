@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="FileService_Sequence">
+    <log level="custom">
+        <property name="text" value="----------FileService_Sequence-------------"/>
+        <property name="message" expression="$body"/>
+    </log>
+    <property name="filename" expression="fn:concat('Stub_',$ctx:currentDate)" scope="default" type="STRING"/>
+    <property name="destination" value="FTP" scope="default" type="STRING"/>
+    <property name="OUT_ONLY" value="true" scope="default" type="STRING"/>
+    <switch source="get-property('destination')">
+        <case regex="FILE">
+            <sequence key="GenericFileService_File_InSequence"/>
+        </case>
+        <case regex="FTP">
+            <sequence key="GenericFileService_Ftp_InSequence"/>
+        </case>
+        <default/>
+    </switch>
+    <header name="To" scope="default" action="remove"/>
+    <property name="RESPONSE" value="true" scope="default" type="STRING"/>
+    <property name="NO_ENTITY_BODY" scope="axis2" action="remove"/>
+    <sequence key="MonitorService_Sequence"/>
+</sequence>

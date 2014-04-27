@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="Ibms_GetTitles_Sequence">
+    <log level="custom">
+        <property name="text" value="----------Ibms_GetTitles_Sequence-------------"/>
+        <property name="message" expression="$body"/>
+    </log>
+    <log level="full" description="log:input"/>
+    <header name="Action" scope="default" value="GetVodTitle"/>
+    <payloadFactory media-type="xml">
+        <format>
+            <ns1:GetVodTitle xmlns:ns1="http://service.skytv.co.nz/ibms/v1"/>
+        </format>
+        <args/>
+    </payloadFactory>
+    <log level="full"/>
+    <send receive="MpxTransform_Sequence">
+        <endpoint>
+            <address uri="http://localhost:9769/services/StubAssetIbmsService/"/>
+        </endpoint>
+    </send>
+</sequence>

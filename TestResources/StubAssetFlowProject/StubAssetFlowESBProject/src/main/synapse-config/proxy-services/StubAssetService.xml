@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="StubAssetService" transports="http https" startOnLoad="true" trace="disable">
+    <target>
+        <inSequence>
+            <property xmlns:ns1="http://service.skytv.co.nz/puborch-extracttitles/v1" name="titleId" expression="//ns1:ExtractTitles/titleId" scope="default" type="STRING"/>
+            <property name="currentDate" expression="get-property('SYSTEM_DATE', 'yyyy-MM-dd hh:mm:ss')" scope="default" type="STRING"/>
+            <log level="custom">
+                <property name="text" value="----------currentDate-------------"/>
+                <property name="message" expression="get-property('currentDate')"/>
+            </log>
+            <log level="custom">
+                <property name="text" value="----------titleId-------------"/>
+                <property name="message" expression="get-property('titleId')"/>
+            </log>
+            <filter source="get-property('titleId')" regex=".*[^0-9].*">
+                <then>
+                    <sequence key="Ibms_GetTitles_Sequence"/>
+                </then>
+                <else>
+                    <sequence key="Ibms_GetTitle_Sequence"/>
+                </else>
+            </filter>
+        </inSequence>
+        <outSequence>
+            <payloadFactory media-type="xml">
+                <format>
+                    <ns1:ExtractTitlesResponse xmlns:ns1="http://service.skytv.co.nz/puborch-extracttitles/v1">
+                        <result>success</result>
+                    </ns1:ExtractTitlesResponse>
+                </format>
+                <args/>
+            </payloadFactory>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </target>
+    <publishWSDL key="gov:/wsdl/StubAssetService_wsdl.wsdl"/>
+</proxy>

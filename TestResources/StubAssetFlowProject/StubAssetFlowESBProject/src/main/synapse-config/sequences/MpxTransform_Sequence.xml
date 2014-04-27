@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="MpxTransform_Sequence">
+    <log level="custom">
+        <property name="text" value="----------MpxTransform_Sequence-------------"/>
+        <property name="message" expression="$body"/>
+    </log>
+    <xslt key="gov:xslt/mpxTransformXslt.xslt"/>
+    <log level="custom">
+        <property name="text" value="----------After Transform-------------"/>
+        <property name="message" expression="$body"/>
+    </log>
+    <log level="full"/>
+    <sequence key="FileService_Sequence"/>
+</sequence>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="Ibms_GetTitle_Sequence">
+    <log level="custom">
+        <property name="text" value="----------Ibms_GetTitle_Sequence-------------"/>
+        <property name="message" expression="get-property('titleId')"/>
+    </log>
+    <log level="full" description="log:input"/>
+    <header name="Action" scope="default" value="GetVodTitleByTitleID"/>
+    <payloadFactory media-type="xml">
+        <format>
+            <ns1:GetVodTitleByTitleID xmlns:ns1="http://service.skytv.co.nz/ibms/v1">
+                <xs:titleId xmlns:xs="http://service.skytv.co.nz/ibms/v1">$1</xs:titleId>
+            </ns1:GetVodTitleByTitleID>
+        </format>
+        <args>
+            <arg evaluator="xml" expression="$ctx:titleId"/>
+        </args>
+    </payloadFactory>
+    <log level="full"/>
+    <send receive="MpxTransform_Sequence">
+        <endpoint>
+            <address uri="http://localhost:9769/services/StubAssetIbmsService/"/>
+        </endpoint>
+    </send>
+</sequence>
