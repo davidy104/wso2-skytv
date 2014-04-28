@@ -1,57 +1,82 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns2="http://model.skytv.co.nz/media-notification/v1" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://process.skytv.co.nz/puborch-medianotification/v1" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:wsdl="http://service.skytv.co.nz/skygo-medianotificationservice/v1" xmlns:wsdl1="http://service.skytv.co.nz/monitor-utility/v1" xmlns:wsdl2="http://service.skytv.co.nz/pig-medianotification/v1" xmlns:wsdl3="http://service.skytv.co.nz/ibms/v1" xmlns:wsdl4="https://service.skytv.co.nz/puborch-fileService/v1" xmlns:wsdl5="http://service.skytv.co.nz/puborch-transform/v1" xmlns:wsdl6="http://service.skytv.co.nz/puborch-productdef/v1" name="PubOrchMediaNotificationProcess" targetNamespace="http://process.skytv.co.nz/puborch-medianotification/v1">
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:ns2="http://model.skytv.co.nz/media-notification/v1" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://process.skytv.co.nz/puborch-medianotification/v1"
+	xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop"
+	xmlns:wsdl="http://service.skytv.co.nz/skygo-medianotificationservice/v1"
+	xmlns:wsdl1="http://service.skytv.co.nz/monitor-utility/v1"
+	xmlns:wsdl2="http://service.skytv.co.nz/pig-medianotification/v1"
+	xmlns:wsdl3="http://service.skytv.co.nz/ibms/v1" xmlns:wsdl4="https://service.skytv.co.nz/puborch-fileService/v1"
+	xmlns:wsdl5="http://service.skytv.co.nz/puborch-transform/v1"
+	xmlns:wsdl6="http://service.skytv.co.nz/puborch-productdef/v1" name="PubOrchMediaNotificationProcess"
+	targetNamespace="http://process.skytv.co.nz/puborch-medianotification/v1">
 
-	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ TYPE DEFINITION - List of types participating in this BPEL process The BPEL Designer will generate 
-		default request and response types but you can define or import any XML Schema type and use them as part of the message types. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-    <plnk:partnerLinkType name="skyGoServicePLType">
-    <plnk:role name="skyGoServiceRole" portType="wsdl:SkyGoMediaNotificationServicePortType"/>
-  </plnk:partnerLinkType>
-    <plnk:partnerLinkType name="monitorServicePLType">
-    <plnk:role name="monitorServiceRole" portType="wsdl1:MonitorUtilityServicePortType"/>
-  </plnk:partnerLinkType>
-    <plnk:partnerLinkType name="pigMediaNotificationPLType">
-    <plnk:role name="pigMediaNotificationRole" portType="wsdl2:PIGMediaNotificationServicePortType"/>
-  </plnk:partnerLinkType>
-    <plnk:partnerLinkType name="ibmsServicePLType">
-    <plnk:role name="ibmsServiceRole" portType="wsdl3:PubOrchMediaNotificationIBMSServicePortType"/>
-  </plnk:partnerLinkType>
-    <plnk:partnerLinkType name="fileServicePLType">
-    <plnk:role name="fileServiceRole" portType="wsdl4:GenericFileServicePortType"/>
-  </plnk:partnerLinkType>
-    <plnk:partnerLinkType name="mpxTransformServicePLType">
-    <plnk:role name="mpxTransformServiceRole" portType="wsdl5:MediaNotificationMpxTransformServicePortType"/>
-  </plnk:partnerLinkType>
-    <plnk:partnerLinkType name="productDefinitionServicePLType">
-    <plnk:role name="productDefinitionServiceRole" portType="wsdl6:ProductDefinitionServicePortType"/>
-  </plnk:partnerLinkType>
-    <import location="SkyGoMediaNotificationService.wsdl" namespace="http://service.skytv.co.nz/skygo-medianotificationservice/v1"/>
-    <import location="MonitorUtilityService.wsdl" namespace="http://service.skytv.co.nz/monitor-utility/v1"/>
-    <import location="PIGMediaNotificationService.wsdl" namespace="http://service.skytv.co.nz/pig-medianotification/v1"/>
-    <import location="PubOrchMediaNotificationIBMSService.wsdl" namespace="http://service.skytv.co.nz/ibms/v1"/>
-    <import location="GenericFileService.wsdl" namespace="https://service.skytv.co.nz/puborch-fileService/v1"/>
-    <import location="MediaNotificationMpxTransformService.wsdl" namespace="http://service.skytv.co.nz/puborch-transform/v1"/>
-    <import location="ProductDefinitionService.wsdl" namespace="http://service.skytv.co.nz/puborch-productdef/v1"/>
-    <types>
-		<schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://process.skytv.co.nz/puborch-medianotification/v1">
-			<import namespace="http://model.skytv.co.nz/media-notification/v1"/>
-			<element name="HandleNotificationRequest" type="ns2:NotificationRequestType"/>
-			<element name="HandleNotificationResponse" type="string"/>
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		TYPE DEFINITION - List of types participating in this BPEL process The BPEL 
+		Designer will generate default request and response types but you can define 
+		or import any XML Schema type and use them as part of the message types. 
+		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<plnk:partnerLinkType name="skyGoServicePLType">
+		<plnk:role name="skyGoServiceRole" portType="wsdl:SkyGoMediaNotificationServicePortType" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="monitorServicePLType">
+		<plnk:role name="monitorServiceRole" portType="wsdl1:MonitorUtilityServicePortType" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="pigMediaNotificationPLType">
+		<plnk:role name="pigMediaNotificationRole" portType="wsdl2:PIGMediaNotificationServicePortType" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="ibmsServicePLType">
+		<plnk:role name="ibmsServiceRole"
+			portType="wsdl3:PubOrchMediaNotificationIBMSServicePortType" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="fileServicePLType">
+		<plnk:role name="fileServiceRole" portType="wsdl4:GenericFileServicePortType" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="mpxTransformServicePLType">
+		<plnk:role name="mpxTransformServiceRole"
+			portType="wsdl5:MediaNotificationMpxTransformServicePortType" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="productDefinitionServicePLType">
+		<plnk:role name="productDefinitionServiceRole" portType="wsdl6:ProductDefinitionServicePortType" />
+	</plnk:partnerLinkType>
+	<import location="SkyGoMediaNotificationService.wsdl"
+		namespace="http://service.skytv.co.nz/skygo-medianotificationservice/v1" />
+	<import location="MonitorUtilityService.wsdl" namespace="http://service.skytv.co.nz/monitor-utility/v1" />
+	<import location="PIGMediaNotificationService.wsdl"
+		namespace="http://service.skytv.co.nz/pig-medianotification/v1" />
+	<import location="PubOrchMediaNotificationIBMSService.wsdl"
+		namespace="http://service.skytv.co.nz/ibms/v1" />
+	<import location="GenericFileService.wsdl"
+		namespace="https://service.skytv.co.nz/puborch-fileService/v1" />
+	<import location="MediaNotificationMpxTransformService.wsdl"
+		namespace="http://service.skytv.co.nz/puborch-transform/v1" />
+	<import location="ProductDefinitionService.wsdl"
+		namespace="http://service.skytv.co.nz/puborch-productdef/v1" />
+	<types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema"
+			attributeFormDefault="unqualified" elementFormDefault="qualified"
+			targetNamespace="http://process.skytv.co.nz/puborch-medianotification/v1">
+			<import namespace="http://model.skytv.co.nz/media-notification/v1" />
+			<element name="HandleNotificationRequest" type="ns2:NotificationRequestType" />
+			<element name="HandleNotificationResponse" type="string" />
 
 		</schema>
 
 
-		<schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://model.skytv.co.nz/media-notification/v1">
+		<schema xmlns="http://www.w3.org/2001/XMLSchema"
+			attributeFormDefault="unqualified" elementFormDefault="qualified"
+			targetNamespace="http://model.skytv.co.nz/media-notification/v1">
 			<complexType name="NotificationRequestType">
 				<sequence>
-					<element name="Notification" type="ns2:NotificationType"/>
+					<element name="Notification" type="ns2:NotificationType" />
 				</sequence>
 			</complexType>
 			<complexType name="NotificationType">
 				<sequence>
-					<element name="time" type="string"/>
-					<element name="state" type="string"/>
-					<element name="mediaID" type="string"/>
-					<element name="guid" type="string"/>
+					<element name="time" type="string" />
+					<element name="state" type="string" />
+					<element name="mediaID" type="string" />
+					<element name="guid" type="string" />
 				</sequence>
 			</complexType>
 		</schema>
@@ -59,48 +84,59 @@
 
 
 
-	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ MESSAGE TYPE DEFINITION - Definition of the message types used as part of the port type defintions 
-		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		MESSAGE TYPE DEFINITION - Definition of the message types used as part of 
+		the port type defintions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<message name="PubOrchMediaNotificationProcessRequestMessage">
-		<part element="tns:HandleNotificationRequest" name="payload"/>
+		<part element="tns:HandleNotificationRequest" name="payload" />
 	</message>
 	<message name="PubOrchMediaNotificationProcessResponseMessage">
-		<part element="tns:HandleNotificationResponse" name="payload"/>
+		<part element="tns:HandleNotificationResponse" name="payload" />
 	</message>
 
-	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ PORT TYPE DEFINITION - A port type groups a set of operations into a logical service unit. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		PORT TYPE DEFINITION - A port type groups a set of operations into a logical 
+		service unit. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 	<!-- portType implemented by the PubOrchMediaNotificationProcess BPEL process -->
 	<portType name="PubOrchMediaNotificationProcess">
 		<operation name="process">
-			<input message="tns:PubOrchMediaNotificationProcessRequestMessage"/>
-			<output message="tns:PubOrchMediaNotificationProcessResponseMessage"/>
+			<input message="tns:PubOrchMediaNotificationProcessRequestMessage" />
+			<output message="tns:PubOrchMediaNotificationProcessResponseMessage" />
 		</operation>
 	</portType>
-	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ PARTNER LINK TYPE DEFINITION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		PARTNER LINK TYPE DEFINITION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<plnk:partnerLinkType name="PubOrchMediaNotificationProcess">
-		<plnk:role name="PubOrchMediaNotificationProcessProvider" portType="tns:PubOrchMediaNotificationProcess"/>
+		<plnk:role name="PubOrchMediaNotificationProcessProvider"
+			portType="tns:PubOrchMediaNotificationProcess" />
 	</plnk:partnerLinkType>
 
 
-	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BINDING DEFINITION - Defines the message format and protocol details for a web service. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		BINDING DEFINITION - Defines the message format and protocol details for 
+		a web service. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<binding name="PubOrchMediaNotificationProcessBinding" type="tns:PubOrchMediaNotificationProcess">
-		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
 		<operation name="process">
-			<soap:operation soapAction="http://process.skytv.co.nz/puborch-medianotification/v1/process"/>
+			<soap:operation
+				soapAction="http://process.skytv.co.nz/puborch-medianotification/v1/process" />
 			<input>
-				<soap:body use="literal"/>
+				<soap:body use="literal" />
 			</input>
 			<output>
-				<soap:body use="literal"/>
+				<soap:body use="literal" />
 			</output>
 		</operation>
 	</binding>
 
-	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SERVICE DEFINITION - A service groups a set of ports into a service unit. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		SERVICE DEFINITION - A service groups a set of ports into a service unit. 
+		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<service name="PubOrchMediaNotificationProcess">
 		<port binding="tns:PubOrchMediaNotificationProcessBinding" name="PubOrchMediaNotificationProcessPort">
-			<soap:address location="http://localhost:8080/PubOrchMediaNotificationProcess"/>
+			<soap:address location="http://localhost:8080/PubOrchMediaNotificationProcess" />
 		</port>
 	</service>
 </definitions>

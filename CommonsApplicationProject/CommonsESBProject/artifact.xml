@@ -14,4 +14,7 @@
     <artifact name="GenericFileService" groupId="co.nz.skytv.CommonsESBProject.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/proxy-services/GenericFileService.xml</file>
     </artifact>
+    <artifact name="GenericErrorHandle_Sequence" groupId="co.nz.skytv.CommonsESBProject.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/GenericErrorHandle_Sequence.xml</file>
+    </artifact>
 </artifacts>

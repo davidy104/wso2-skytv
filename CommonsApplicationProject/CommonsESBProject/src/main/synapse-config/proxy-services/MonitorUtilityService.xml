@@ -7,7 +7,7 @@
             </log>
             <property xmlns:ns2="http://model.skytv.co.nz/monitor-utility/v1" xmlns:ns1="http://service.skytv.co.nz/monitor-utility/v1" name="dateTime" expression="//ns1:Monitor/ns2:MonitorRecord/ns2:dateTime" scope="default" type="STRING"/>
             <property xmlns:ns2="http://model.skytv.co.nz/monitor-utility/v1" xmlns:ns1="http://service.skytv.co.nz/monitor-utility/v1" name="serviceName" expression="//ns1:Monitor/ns2:MonitorRecord/ns2:serviceName" scope="default" type="STRING"/>
-            <property name="filename" expression="fn:concat(get-property('serviceName'), get-property('dateTime'))" scope="default" type="STRING"/>
+            <property name="filename" expression="fn:concat(fn:concat(get-property('serviceName'), get-property('dateTime')),'.xml')" scope="default" type="STRING"/>
             <sequence key="MonitorUtilityService_InSequence"/>
         </inSequence>
         <outSequence/>

@@ -162,6 +162,30 @@
   </extensions>
   <extensions>
     <extendedObject href="PubOrchInHouseProcess.bpel#/"/>
-    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1398450079000"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1398632219000"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="PubOrchInHouseProcess.bpel#//@activity/@activities.2/@faultHandler/@catchAll/@activity"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="PubOrchInHouseProcess.bpel#//@activity/@activities.2/@faultHandler/@catchAll/@activity/@activities.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="PubOrchInHouseProcess.bpel#//@activity/@activities.2/@faultHandler/@catchAll/@activity/@activities.2"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="PubOrchInHouseProcess.bpel#//@activity/@activities.2/@faultHandler/@catchAll/@activity/@activities.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:ActivityExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="PubOrchInHouseProcess.bpel#//@activity/@activities.2/@faultHandler/@catchAll/@activity/@activities.0/@copy.0"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
+  </extensions>
+  <extensions>
+    <extendedObject href="PubOrchInHouseProcess.bpel#//@activity/@activities.2/@faultHandler/@catchAll/@activity/@activities.0/@copy.1"/>
+    <extensionObject xsi:type="org.eclipse.bpel.ui.uiextensionmodel:CopyExtension"/>
   </extensions>
 </extensionmodel:ExtensionMap>

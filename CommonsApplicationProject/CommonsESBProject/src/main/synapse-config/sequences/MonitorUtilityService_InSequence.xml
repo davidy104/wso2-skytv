@@ -8,8 +8,6 @@
     <property name="transport.vfs.Streaming" value="true" scope="default" type="STRING"/>
     <property name="transport.vfs.ContentType" value="text/xml" scope="default" type="STRING"/>
     <send>
-        <endpoint name="MonitorTrackFolder">
-            <address uri="vfs:file:///home/david/mywork/sky/test/sharingfolder?transport.vfs.Append=false" format="pox"/>
-        </endpoint>
+        <endpoint key="gov:endpoints/GenericFileService_File_Endpoint.xml"/>
     </send>
 </sequence>

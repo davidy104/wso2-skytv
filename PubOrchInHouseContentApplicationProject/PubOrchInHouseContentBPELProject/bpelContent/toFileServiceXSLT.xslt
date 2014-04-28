@@ -12,7 +12,7 @@
 		<xsl:element name="ns1:SendToFileServiceRequest"
 			xmlns:ns1="https://service.skytv.co.nz/puborch-fileService/v1">
 			<fileName>
-				<xsl:value-of select="concat('Stub_',$formatcurrenttime)" />
+				<xsl:value-of select="concat(concat('InHouse_',$formatcurrenttime),'.xml')" />
 			</fileName>
 			<destination>FTP</destination>
 			<contents>

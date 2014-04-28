@@ -36,7 +36,7 @@
 			attributeFormDefault="unqualified" elementFormDefault="qualified"
 			targetNamespace="http://process.skytv.co.nz/puborch-extracttitles/v1">
 
-			<element name="StubAssetBPELProjectRequest">
+			<element name="ExtractTitles">
 				<complexType>
 					<sequence>
 						<element name="titleId" type="double" />
@@ -52,8 +52,8 @@
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 		MESSAGE TYPE DEFINITION - Definition of the message types used as part of 
 		the port type defintions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<message name="StubAssetBPELProjectRequestMessage">
-		<part element="tns:StubAssetBPELProjectRequest" name="payload" />
+	<message name="ExtractTitlesMessage">
+		<part element="tns:ExtractTitles" name="payload" />
 	</message>
 
 
@@ -64,7 +64,7 @@
 	<!-- portType implemented by the StubAssetBPELProject BPEL process -->
 	<portType name="StubAssetBPELProject">
 		<operation name="process">
-			<input message="tns:StubAssetBPELProjectRequestMessage" />
+			<input message="tns:ExtractTitlesMessage" />
 		</operation>
 	</portType>
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 

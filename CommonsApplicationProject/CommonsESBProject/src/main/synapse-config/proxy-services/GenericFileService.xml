@@ -11,8 +11,13 @@
                 <source xmlns:ns1="https://service.skytv.co.nz/puborch-fileService/v1" clone="true" xpath="//ns1:SendToFileServiceRequest/contents/*"/>
                 <target type="body"/>
             </enrich>
-            <log>
-                <property name="---file contents---" value="$body"/>
+            <log level="custom">
+                <property name="message" value="============body============"/>
+                <property name="content" expression="$body"/>
+            </log>
+            <log level="custom">
+                <property name="message" value="============destination============"/>
+                <property name="content" expression="get-property('destination')"/>
             </log>
             <property name="OUT_ONLY" value="true" scope="default" type="STRING"/>
             <switch source="get-property('destination')">
@@ -22,7 +27,11 @@
                 <case regex="FTP">
                     <sequence key="GenericFileService_Ftp_InSequence"/>
                 </case>
-                <default/>
+                <default>
+                    <log level="custom">
+                        <property name="MSG" value="==== not identified Destination ==="/>
+                    </log>
+                </default>
             </switch>
             <payloadFactory media-type="xml">
                 <format>
@@ -38,7 +47,17 @@
             <send/>
         </inSequence>
         <outSequence/>
-        <faultSequence/>
+        <faultSequence>
+            <log level="custom">
+                <property name="MSG" value="==== FAULT CREATED ==="/>
+            </log>
+            <makefault version="soap12">
+                <code xmlns:soap12Env="http://www.w3.org/2003/05/soap-envelope" value="soap12Env:VersionMismatch"/>
+                <reason xmlns:ns="http://org.apache.synapse/xsd" expression="get-property('ERROR_MESSAGE')"/>
+                <detail expression="get-property('customErrorDetail')"/>
+            </makefault>
+            <send/>
+        </faultSequence>
     </target>
     <publishWSDL key="gov:/wsdl/GenericFileService_Wsdl.wsdl"/>
 </proxy>

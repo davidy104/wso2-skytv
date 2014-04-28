@@ -13,9 +13,9 @@
 
 			<xsl:element name="ns2:MonitorRecord"
 				xmlns:ns2="http://model.skytv.co.nz/monitor-utility/v1">
-				<ns2:serviceName>StubAssetProcess</ns2:serviceName>
+				<ns2:serviceName>MediaNotificationProcess</ns2:serviceName>
 				<ns2:instanceId></ns2:instanceId>
-				<ns2:status>FINISHED</ns2:status>
+				<ns2:status>ERROR</ns2:status>
 				<ns2:dateTime>
 					<xsl:value-of select="$formatcurrenttime" />
 				</ns2:dateTime>

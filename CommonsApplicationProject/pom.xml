@@ -101,22 +101,16 @@
       <type>xml</type>
     </dependency>
     <dependency>
-      <groupId>co.nz.skytv.CommonsESBProject.sequence</groupId>
-      <artifactId>GenericFileService_Ftp_InSequence</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
       <groupId>co.nz.skytv.CommonsESBProject.proxy-service</groupId>
       <artifactId>GenericFileService</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>
     <dependency>
-      <groupId>co.nz.skytv.CommonsRegistryResourcesProject.resource</groupId>
-      <artifactId>PubOrchNotificationProduct_Endpoint</artifactId>
+      <groupId>co.nz.skytv.CommonsESBProject.sequence</groupId>
+      <artifactId>GenericFileService_Ftp_InSequence</artifactId>
       <version>1.0.0</version>
-      <type>zip</type>
+      <type>xml</type>
     </dependency>
     <dependency>
       <groupId>co.nz.skytv.CommonsRegistryResourcesProject.resource</groupId>
@@ -126,7 +120,7 @@
     </dependency>
     <dependency>
       <groupId>co.nz.skytv.CommonsRegistryResourcesProject.resource</groupId>
-      <artifactId>GenericFileService_File_Endpoint</artifactId>
+      <artifactId>PubOrchNotificationProduct_Endpoint</artifactId>
       <version>1.0.0</version>
       <type>zip</type>
     </dependency>
@@ -135,6 +129,12 @@
       <artifactId>GenericFileService_File_InSequence</artifactId>
       <version>1.0.0</version>
       <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>co.nz.skytv.CommonsRegistryResourcesProject.resource</groupId>
+      <artifactId>GenericFileService_File_Endpoint</artifactId>
+      <version>1.0.0</version>
+      <type>zip</type>
     </dependency>
     <dependency>
       <groupId>co.nz.skytv.CommonsRegistryResourcesProject.resource</groupId>
@@ -166,6 +166,12 @@
       <version>1.0.0</version>
       <type>xml</type>
     </dependency>
+    <dependency>
+      <groupId>co.nz.skytv.CommonsESBProject.sequence</groupId>
+      <artifactId>GenericErrorHandle_Sequence</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
   </dependencies>
   <properties>
     <co.nz.skytv.CommonsESBProject.sequence_._GenericFileService_Ftp_InSequence>capp/EnterpriseServiceBus</co.nz.skytv.CommonsESBProject.sequence_._GenericFileService_Ftp_InSequence>
@@ -173,6 +179,7 @@
     <artifact.types>jaggery/app=zip,service/rule=aar,lib/library/bundle=jar,synapse/message-processors=xml,synapse/endpointTemplate=xml,synapse/proxy-service=xml,synapse/message-store=xml,carbon/application=car,registry/resource=zip,lib/dataservice/validator=jar,synapse/endpoint=xml,web/application=war,synapse/sequence=xml,synapse/configuration=xml,lib/registry/handlers=jar,synapse/task=xml,service/meta=xml,webapp/jaxws=war,synapse/api=xml,cep/bucket=xml,bpel/workflow=zip,lib/registry/filter=jar,service/dataservice=dbs,synapse/local-entry=xml,synapse/priority-executor=xml,synapse/event-source=xml,synapse/template=xml,lib/carbon/ui=jar,service/axis2=aar,synapse/sequenceTemplate=xml,wso2/gadget=dar,lib/synapse/mediator=jar</artifact.types>
     <co.nz.skytv.CommonsRegistryResourcesProject.resource_._GenericFileService_FTP_Endpoint>capp/EnterpriseServiceBus</co.nz.skytv.CommonsRegistryResourcesProject.resource_._GenericFileService_FTP_Endpoint>
     <co.nz.skytv.CommonsRegistryResourcesProject.resource_._MonitorUtilityService_Wsdl>capp/EnterpriseServiceBus</co.nz.skytv.CommonsRegistryResourcesProject.resource_._MonitorUtilityService_Wsdl>
+    <co.nz.skytv.CommonsESBProject.sequence_._GenericErrorHandle_Sequence>capp/EnterpriseServiceBus</co.nz.skytv.CommonsESBProject.sequence_._GenericErrorHandle_Sequence>
     <co.nz.skytv.CommonsESBProject.proxy-service_._GenericFileService>capp/EnterpriseServiceBus</co.nz.skytv.CommonsESBProject.proxy-service_._GenericFileService>
     <co.nz.skytv.CommonsESBProject.sequence_._MonitorUtilityService_InSequence>capp/EnterpriseServiceBus</co.nz.skytv.CommonsESBProject.sequence_._MonitorUtilityService_InSequence>
     <co.nz.skytv.CommonsESBProject.sequence_._GenericFileService_File_InSequence>capp/EnterpriseServiceBus</co.nz.skytv.CommonsESBProject.sequence_._GenericFileService_File_InSequence>

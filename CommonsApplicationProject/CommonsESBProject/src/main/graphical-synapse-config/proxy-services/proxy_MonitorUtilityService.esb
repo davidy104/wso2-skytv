@@ -39,7 +39,7 @@
               <outputConnector>
                 <outgoingLink target="//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.4/@inputConnector"/>
               </outputConnector>
-              <valueExpression propertyValue="fn:concat(get-property('serviceName'), get-property('dateTime'))" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
+              <valueExpression propertyValue="fn:concat(fn:concat(get-property('serviceName'), get-property('dateTime')),'.xml')" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
             </children>
             <children xsi:type="esb:Sequence" name="MonitorUtilityService_InSequence">
               <inputConnector incomingLinks="//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.3/@outputConnector/@outgoingLink"/>
