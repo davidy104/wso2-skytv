@@ -36,8 +36,7 @@
 						<xsl:value-of select="ns2:Media/ns2:certification" />
 					</media:rating>
 
-					<sky:advisory>
-					</sky:advisory>
+					<xsl:apply-templates select="ns2:Media/ns2:certification" />
 
 					<sky:audioType>
 						<xsl:value-of select="ns2:Media/ns2:audioType" />
@@ -58,4 +57,183 @@
 			</channel>
 		</rss>
 	</xsl:template>
+
+
+	<xsl:template match="ns2:certification" name="letters">
+		<xsl:param name="text" select="." />
+
+		<xsl:if test="starts-with($text,'16') and string-length($text) &gt; 2">
+			<xsl:param name="text1" select="substring($text,3)" />
+			<xsl:if test="$text1 != ''">
+				<xsl:variable name="letter" select="substring($text1, 1, 1)" />
+				<sky:advisory>
+					<xsl:value-of select="$letter" />
+				</sky:advisory>
+				<xsl:call-template name="letters">
+					<xsl:with-param name="text1"
+						select="substring-after($text1, $letter)" />
+				</xsl:call-template>
+			</xsl:if>
+		</xsl:if>
+
+		<xsl:if test="starts-with($text,'G') and string-length($text) &gt; 1">
+			<xsl:param name="text2" select="substring($text,2)" />
+			<xsl:if test="$text2 != ''">
+				<xsl:variable name="letter" select="substring($text2, 1, 1)" />
+				<sky:advisory>
+					<xsl:value-of select="$letter" />
+				</sky:advisory>
+				<xsl:call-template name="letters">
+					<xsl:with-param name="text2"
+						select="substring-after($text2, $letter)" />
+				</xsl:call-template>
+			</xsl:if>
+		</xsl:if>
+
+		<xsl:if test="starts-with($text,'M') and string-length($text) &gt; 1">
+			<xsl:param name="text3" select="substring($text,2)" />
+			<xsl:if test="$text3 != ''">
+				<xsl:variable name="letter" select="substring($text3, 1, 1)" />
+				<sky:advisory>
+					<xsl:value-of select="$letter" />
+				</sky:advisory>
+				<xsl:call-template name="letters">
+					<xsl:with-param name="text3"
+						select="substring-after($text3, $letter)" />
+				</xsl:call-template>
+			</xsl:if>
+		</xsl:if>
+
+		<xsl:if test="starts-with($text,'PG') and string-length($text) &gt; 2">
+			<xsl:param name="text4" select="substring($text,3)" />
+			<xsl:if test="$text4 != ''">
+				<xsl:variable name="letter" select="substring($text4, 1, 1)" />
+				<sky:advisory>
+					<xsl:value-of select="$letter" />
+				</sky:advisory>
+				<xsl:call-template name="letters">
+					<xsl:with-param name="text4"
+						select="substring-after($text4, $letter)" />
+				</xsl:call-template>
+			</xsl:if>
+		</xsl:if>
+
+		<xsl:if
+			test="starts-with($text,'18') and not(starts-with($text,'18+')) and string-length($text) &gt; 2">
+			<xsl:param name="text5" select="substring($text,3)" />
+			<xsl:if test="$text5 != ''">
+				<xsl:variable name="letter" select="substring($text5, 1, 1)" />
+				<sky:advisory>
+					<xsl:value-of select="$letter" />
+				</sky:advisory>
+				<xsl:call-template name="letters">
+					<xsl:with-param name="text5"
+						select="substring-after($text5, $letter)" />
+				</xsl:call-template>
+			</xsl:if>
+		</xsl:if>
+
+		<xsl:if test="starts-with($text,'18+') and string-length($text) &gt; 3">
+			<xsl:param name="text6" select="substring($text,4)" />
+			<xsl:if test="$text6 != ''">
+				<xsl:variable name="letter" select="substring($text6, 1, 1)" />
+				<sky:advisory>
+					<xsl:value-of select="$letter" />
+				</sky:advisory>
+				<xsl:call-template name="letters">
+					<xsl:with-param name="text6"
+						select="substring-after($text6, $letter)" />
+				</xsl:call-template>
+			</xsl:if>
+		</xsl:if>
+
+		<xsl:if
+			test="starts-with($text,'R20') and not(starts-with($text,'R20+')) and string-length($text) &gt; 3">
+			<xsl:param name="text7" select="substring($text,4)" />
+			<xsl:if test="$text7 != ''">
+				<xsl:variable name="letter" select="substring($text7, 1, 1)" />
+				<sky:advisory>
+					<xsl:value-of select="$letter" />
+				</sky:advisory>
+				<xsl:call-template name="letters">
+					<xsl:with-param name="text7"
+						select="substring-after($text7, $letter)" />
+				</xsl:call-template>
+			</xsl:if>
+		</xsl:if>
+
+		<xsl:if test="starts-with($text,'R20+') and string-length($text) &gt; 4">
+			<xsl:param name="text8" select="substring($text,5)" />
+			<xsl:if test="$text8 != ''">
+				<xsl:variable name="letter" select="substring($text8, 1, 1)" />
+				<sky:advisory>
+					<xsl:value-of select="$letter" />
+				</sky:advisory>
+				<xsl:call-template name="letters">
+					<xsl:with-param name="text8"
+						select="substring-after($text8, $letter)" />
+				</xsl:call-template>
+			</xsl:if>
+		</xsl:if>
+
+		<xsl:if test="starts-with($text,'R Only') and string-length($text) &gt; 6">
+			<xsl:param name="text9" select="substring($text,7)" />
+			<xsl:if test="$text9 != ''">
+				<xsl:variable name="letter" select="substring($text9, 1, 1)" />
+				<sky:advisory>
+					<xsl:value-of select="$letter" />
+				</sky:advisory>
+				<xsl:call-template name="letters">
+					<xsl:with-param name="text9"
+						select="substring-after($text9, $letter)" />
+				</xsl:call-template>
+			</xsl:if>
+		</xsl:if>
+
+		<xsl:if test="starts-with($text,'X Adult') and string-length($text) &gt; 7">
+			<xsl:param name="text10" select="substring($text,8)" />
+			<xsl:if test="$text10 != ''">
+				<xsl:variable name="letter" select="substring($text10, 1, 1)" />
+				<sky:advisory>
+					<xsl:value-of select="$letter" />
+				</sky:advisory>
+				<xsl:call-template name="letters">
+					<xsl:with-param name="text10"
+						select="substring-after($text10, $letter)" />
+				</xsl:call-template>
+			</xsl:if>
+		</xsl:if>
+
+		<xsl:if
+			test="starts-with($text,'XX Adult') and string-length($text) &gt; 8">
+			<xsl:param name="text11" select="substring($text,9)" />
+			<xsl:if test="$text11 != ''">
+				<xsl:variable name="letter" select="substring($text11, 1, 1)" />
+				<sky:advisory>
+					<xsl:value-of select="$letter" />
+				</sky:advisory>
+				<xsl:call-template name="letters">
+					<xsl:with-param name="text11"
+						select="substring-after($text11, $letter)" />
+				</xsl:call-template>
+			</xsl:if>
+		</xsl:if>
+
+		<xsl:if
+			test="starts-with($text,'XXX Adult') and string-length($text) &gt; 9">
+			<xsl:param name="text12" select="substring($text,10)" />
+			<xsl:if test="$text12 != ''">
+				<xsl:variable name="letter" select="substring($text12, 1, 1)" />
+				<sky:advisory>
+					<xsl:value-of select="$letter" />
+				</sky:advisory>
+				<xsl:call-template name="letters">
+					<xsl:with-param name="text12"
+						select="substring-after($text12, $letter)" />
+				</xsl:call-template>
+			</xsl:if>
+		</xsl:if>
+
+	</xsl:template>
+
 </xsl:stylesheet>
