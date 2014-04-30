@@ -2,8 +2,39 @@
 <proxy xmlns="http://ws.apache.org/ns/synapse" name="MediaNotificationMpxTransformService" transports="http https" startOnLoad="true" trace="disable">
     <target>
         <inSequence>
-            <log description="log:input"/>
+            <log level="custom">
+                <property name="message" value="============input============"/>
+                <property name="content" expression="$body"/>
+            </log>
+            <script language="js">var
+				certificationVar =
+				mc.getPayloadXML()..*::certification.toString();
+				if(certificationVar.lastIndexOf('PG', 0) === 0 &amp;&amp; certificationVar.length &gt; 2){
+				mc.setProperty('certification',certificationVar.substring(0, 2));
+				var restStr = certificationVar.substring(2, certificationVar.length);
+				var advisoryStr = '';
+				for (var x = 0; x &lt; restStr.length; x++){
+					advisoryStr += '&lt;sky:advisory xmlns:sky="http://xml.theplatform.com/media/data/sky"&gt;'+restStr.charAt(x)+'&lt;/sky:advisory&gt;';	
+				}
+				mc.setProperty('advisory',new XML ('&lt;sky:advisory xmlns:sky="http://xml.theplatform.com/media/data/sky"&gt;'+restStr.charAt(2)+'&lt;/sky:advisory&gt;'));
+				}</script>
+            <log level="custom">
+                <property name="message" value="============certification============"/>
+                <property name="content" expression="get-property('certification')"/>
+            </log>
+            <log level="custom">
+                <property name="message" value="============advisory============"/>
+                <property name="content" expression="get-property('advisory')"/>
+            </log>
             <xslt key="gov:xslt/MediaNotificationMpxTransformService_Xslt.xslt" description="mpxTransformXslt"/>
+            <enrich>
+                <source type="property" clone="true" property="certification"/>
+                <target xmlns:ns1="http://service.skytv.co.nz/puborch-transform/v1" xmlns:sky="http://xml.theplatform.com/media/data/sky" xmlns:plingestmf="http://xml.theplatform.com/ingest/data/IngestMediaFile" xmlns:media="http://search.yahoo.com/mrss/" xmlns:plfile="http://xml.theplatform.com/media/data/MediaFile" xpath="//ns1:TransformResponse/rss/channel/item/media:rating"/>
+            </enrich>
+            <enrich>
+                <source type="property" clone="true" property="advisory"/>
+                <target xmlns:ns1="http://service.skytv.co.nz/puborch-transform/v1" xmlns:sky="http://xml.theplatform.com/media/data/sky" xmlns:plingestmf="http://xml.theplatform.com/ingest/data/IngestMediaFile" xmlns:media="http://search.yahoo.com/mrss/" xmlns:plfile="http://xml.theplatform.com/media/data/MediaFile" action="child" xpath="//ns1:TransformResponse/rss/channel/item"/>
+            </enrich>
             <header name="To" scope="default" action="remove"/>
             <property name="RESPONSE" value="true" scope="default" type="STRING"/>
             <property name="NO_ENTITY_BODY" scope="axis2" action="remove"/>
