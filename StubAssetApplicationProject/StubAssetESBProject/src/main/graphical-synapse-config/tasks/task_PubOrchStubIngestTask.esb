@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esb:EsbDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esb="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+  <server type="TASK">
+    <children xsi:type="esb:Task" taskName="PubOrchStubIngestTask" count="5" interval="1000">
+      <taskProperties propertyName="soapAction" propertyValue="process"/>
+      <taskProperties propertyName="to" propertyValue="http://localhost:9765/services/StubAssetBPELProject"/>
+      <taskProperties propertyName="message" propertyValue="&lt;p:ExtractTitles xmlns:p=&quot;http://process.skytv.co.nz/puborch-extracttitles/v1&quot;>&#xA;&#x9;&#x9;&#x9;&lt;titleId xmlns=&quot;http://process.skytv.co.nz/puborch-extracttitles/v1&quot;/>&#xA;&#x9;&#x9;&lt;/p:ExtractTitles>" propertyType="XML"/>
+    </children>
+  </server>
+</esb:EsbDiagram>
